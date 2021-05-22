@@ -1,0 +1,106 @@
+.order{
+    width: 1280px;
+    margin: auto;
+    overflow: hidden; /* 오버 플로우 히든 잡아줘야 높이가 잡힘*/
+    
+}
+.span_r{
+    float: right;
+}
+.order>div{
+    float: left;
+}
+.order_top>a{
+	text-decoration: none;
+	color: black;
+}
+.red{
+    width: 578px;
+    text-align: center;
+    padding-top: 40px;
+    border-left: rgb(224, 224, 224) 1px solid;
+    border-bottom: rgb(224, 224, 224) 1px solid;
+    border-right: rgb(224, 224, 224) 1px solid;
+    height: 520px;
+}
+.blue{
+    border-bottom: rgb(224, 224, 224)1px solid;
+    border-right: rgb(224, 224, 224) 1px solid;
+    width: 698px;
+    padding-top: 40px;
+    height: 520px;
+    
+}
+.tb_p{
+    font-size: 20px;
+    display: inline-block;
+    height: 60px;
+    line-height: 50px;
+    border-bottom: 1px solid rgb(156, 156, 156);
+}
+.order_top{
+    border-bottom: 2px solid rgb(212, 196, 196);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 1280px;
+    margin: auto;
+    font-size: 13px;
+}
+.tb{
+    margin: auto;
+    width: 600px;
+    position: relative;
+    top: 50px;
+}
+.tb>tbody>tr:last-child{
+    /* background-color: blue; */
+    height: 180px;
+}
+.tb_size{
+    height: 45px;
+}
+
+.btn{
+    
+  
+  
+    margin-right: 17px;
+    float: left;
+    text-align: center;
+    line-height: 55px;
+    font-size: 13px;
+
+}
+.order_bottom{
+    width: 1280px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+
+}
+.order_bottom>div{
+    border: 7px solid rgb(235, 229, 229);
+    border-radius: 2px;
+    padding: 90px 0px 90px 0px ;
+    text-align: center;
+}
+.order_bottom>p{
+    font-size: 20px;
+}
+.div_center{
+    margin: auto;
+}
+
+.btn>:hover{
+    background-color: rgb(231, 210, 210);
+}
+.btn>a{
+    display: inline-block;
+    border-radius: 5px;
+    width: 170px;
+    height: 55px;
+    background-color: white;
+    border: 1px solid rgb(200, 192, 192);
+    text-decoration: none;
+    color: black;
+}

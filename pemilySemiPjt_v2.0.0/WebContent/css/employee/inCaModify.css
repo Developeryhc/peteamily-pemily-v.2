@@ -1,0 +1,72 @@
+.caModify-wrap{
+    width:500px;
+    height:700px;
+    box-sizing:border-box;
+    border:2px solid black;
+    border-radius: 10px;
+    background-color:#fde6ff;
+    margin-top:100px;
+    margin-bottom:100px;
+}
+.caImg-wrap, .caInfo-wrap{
+    width:460px;
+    height:200px;
+    border:1px solid #999;
+    margin:0 auto;
+    margin-bottom:25px;
+    box-sizing: border-box;
+    padding:5px;
+}
+.caImg-wrap{
+    height:350px;
+    background-color: #fff;
+}
+.caTopBox{
+    display:flex;
+    height:50px;
+    align-items:center;
+    justify-content: space-between;
+    padding:0 20px;
+}
+.btnBox{
+    text-align:center;
+}
+.caInfo-wrap{
+    display:flex;
+    flex-direction:column;
+    background-color: #fff;
+}
+.caInfo-wrap>div{
+    flex-grow:1;
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+}
+.caInputs{
+    box-sizing: border-box;
+    outline:none;
+    border:1px solid #aaa;
+    height:40px;
+    padding:0 10px;
+	width:40%;
+	font-size:0.9rem;
+}
+.caInputs:focus{
+    border:1px solid black;
+}
+.caInfo{
+    display:flex;
+}
+.caInfoText{
+    width:50px;
+    text-align:center;
+    font-size:0.8rem;
+}
+.caDiv{
+	text-align:right;
+	line-height:40px;
+	background-color:#ddd;
+}
+#incaPriceFake{
+	text-align:right;
+}

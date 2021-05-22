@@ -1,0 +1,59 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+.order_list{
+    width: 1100px;
+    margin: auto;
+}
+td{
+    height: 30px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+input{
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 3px;
+}
+textarea{
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 3px;
+    width: 250px;
+    height: 100px;
+}
+.order_list>table:last-child{
+    margin-top: 20px;
+    border: 1px solid rgb(226, 224, 224);
+    width: 100%;
+    background-color: rgb(248, 245, 245);
+    height: 100px;
+}
+.pay{
+    font-size: 20px;
+    color: rgb(53, 46, 46);
+    font-weight: bolder;
+}
+.btn>div>a{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    width: 180px;
+    height: 50px;
+    border: 1px solid rgb(202, 193, 193);
+    border-radius: 8px;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 10px;
+    font-size: 13px;
+}
+.btn>div>a:hover{
+    background-color: rgb(232, 232, 246);
+}
+.btn{
+    width: 390px;
+    margin: auto;
+    padding-top: 30px;
+}
+.btn>div{
+    float: left;
+}

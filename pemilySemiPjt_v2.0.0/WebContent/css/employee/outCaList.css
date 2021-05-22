@@ -1,0 +1,6 @@
+#outCaList td{
+	width:calc(100%/8);
+}
+#outCaList td:first-child{
+	width:50px;
+}

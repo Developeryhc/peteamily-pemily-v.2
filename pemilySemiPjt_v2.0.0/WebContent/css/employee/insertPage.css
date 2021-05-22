@@ -1,0 +1,174 @@
+
+/* ------------------------------------- */
+/* 모든 selectBox의 디자인 조정, 외형 감추 */
+select {
+    -webkit-appearance: none;  /* 네이티브 외형 감추기 */
+   -moz-appearance: none;
+   appearance: none;
+   background: url('/img/moveButton/dropDownBtn.png') no-repeat 100% 50%;  /* 화살표 모양의 이미지 */
+    width:200px;
+    height:40px;
+    padding-left:10px;
+    box-sizing:border-box;
+}
+/* IE 10, 11의 네이티브 화살표 숨기기 */
+select::-ms-expand {
+    display: none;
+}
+/* 각 등록 form들의 넓이를 조정, 화면에 숨기기 */
+section>form{
+   display:none;
+}
+  /* 각 등록 form의 머리말 위치를 가운데로 정렬 */
+form>h2{
+    text-align:center;
+}
+/* 제목이 필요한 form에 적용 */
+.title{
+   box-sizing:border-box;
+   width:100%;
+   outline: none;
+    border:1px solid #aaa;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+   /* 동물 select박스 CSS */
+.kindsWrap, .animalDivWrap{
+   display:flex;
+   justify-content:center;
+}
+.kindsWrap>*, .animalDivWrap>*{
+   margin-right:10px;
+}
+   /* 하위분류(동물 종)를 감싸는 요소에 relative */
+.kindsBox{
+   position:relative;
+   width:200px;
+   height:40px;
+}
+   /*하위분류에 apsolute를 주어 모두 같은 자리에 배치 */
+.kindsBox>*{
+   display:none;
+   width:100%;
+   height:100%;
+   position:absolute;
+   top:0;
+   left:0;
+}
+   /* 동물 등록 입력 input들 CSS */
+.incaInputs{
+   box-sizing:border-box;
+   width:200px;
+   height:40px;
+   border:1px solid black;
+   padding:0px 10px;
+   outline:none;   
+}
+      /* 동물 세부정보 CSS */
+/* 물품재고 세부정보 CSS */
+.animalInfoWrap, .inProWrap{
+   margin-top:10px;
+   display:flex;
+   justify-content:space-between;
+}
+.animalInfoWrap>div{
+   display:flex;
+   flex-direction:column;
+   justify-content:space-between;
+   
+}
+   /* 동물 등록 세부입력 CSS */
+.animalInfo{
+   display:flex;
+   flex-direction:column;
+   justify-content:space-between;
+   height:100%;
+}
+   /* 동물 등록사진 입력, 물품재고 등록사진 none */
+#incaPic, #inProPic{
+   display:none;
+}
+   /* 동물 등록사진 label CSS */
+#incaPic+label, #inProPic+label{
+     display:block;
+     width:300px;
+     height:300px;
+     box-sizing:border-box;
+     border:1px solid black;
+     background-image:url("/img/buttons/fileselect.png");
+     background-repeat: no-repeat;
+   background-size:100%;
+}
+     /* 물품 등록사진 label CSS */
+
+/* 동물 사진이 등록되면 js로 생성되는 img의 크기를 지정 */
+/* 물품 사진이 등록되면 js로 생성되는 mg의 크기를 지정 */
+#incaPic+label>img, #inProPic+label>img{
+   width:100%;
+   height:100%;
+}
+   /* 물품 세부정보 Wrap CSS  */
+.proWrap{
+   margin-left:50px;
+   display:flex;
+   flex-direction:column;
+   justify-content:space-between;
+}
+   /* 상품 등록 입력 input들 CSS */
+  .inProInputs{
+     outline:none;
+     box-sizing:border-box;
+     border:1px solid black;
+   width:200px;
+   height:40px;
+   padding:0px 10px;
+  }
+     /* 상품 이름의 길이만 길게 지정 */
+#inProName{
+   width:auto;
+}
+/* form 작성완료/취소 버튼 CSS */
+.btns{
+<<<<<<< HEAD
+   display:flex;
+   justify-content:center;
+   
+=======
+	display:flex;
+	justify-content:center;
+	margin:20px 0;
+>>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
+}
+/* 동물등록, 상품재고등록 form의 등록/취소 버튼wrap의 위치 재배치 */
+#incaBtnWrap, #inProPrice+div{
+   justify-content:flex-start;
+   height:40px;
+}
+/* 동물등록, 상품 재고등록 form의 등록/취소 버튼의 넒이 조정 */
+#incaBtnWrap>button, #inProPrice+div>button{
+   width:100px; 
+}
+/* 등록/취소 버튼을 감싸는 wrap요소에 CSS효과 지정 */
+  .btns>*{
+     display:block;
+     width:100px;
+     height:40px;
+     outline:none;
+     border:1px solid black;
+     box-sizing:border-box;
+     cursor:pointer;
+     color:#000;
+     background-color:#fff;
+   box-shadow:0px 0px 3px black;
+   margin-right:10px;
+   float: left;
+}
+  /* 등록버튼에 동일한 형제요소와 10px 만큼 거리 조정 */
+.btns>button:first-child{
+   margin-right:10px;
+}
+/* 등록/취소 버튼에 마우스 롤오버 시 효과 조정 */
+.btns>button:hover{
+   box-shadow:0px 0px 1px black;
+}

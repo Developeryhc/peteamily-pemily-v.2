@@ -1,0 +1,22 @@
+/* No */
+#outPro td:first-child{
+	width:10%;
+}
+/* 입양동물 */
+#outPro td:nth-child(2){
+	width:10%;
+}
+#outPro td:nth-child(3){
+	width:30%;
+}
+#outPro td:nth-child(4){
+	width:10%;
+}
+#outPro td:nth-child(5){
+	width:20%;
+}
+#outPro td:nth-child(6){
+	width:20%;
+}
+
+

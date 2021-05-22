@@ -1,0 +1,73 @@
+/* 직원 공지사항 상세보기, 수정 css */
+.noticeView-wrap{
+	margin:100px auto;
+	width:800px;
+	/* background-color:lightgray; */
+	display:flex;
+	flex-direction:column;
+	box-shadow:3px 3px 7px black;
+}
+.writerInfo-wrap{
+	border-bottom:1px solid #eee;
+	display:flex;
+	margin:0 10px;
+}
+.writerImg{
+	width:100px;
+	height:100px;
+	box-sizing:border-box;
+	padding:10px;
+}
+.writerImg>img{
+	width:100%;
+	height:100%;
+}
+.noticeViewTitle{
+	display:block;
+	width:100%;
+	padding:20px 10px;
+	font-size:1.6rem;
+	box-sizing:border-box;
+}
+.noticeViewTitle+div{
+	padding:0 10px;
+	font-size:0.8rem;
+}
+.writerInfo{
+	width:700px;
+}
+
+.noticeViewDate{
+	float:right;
+}
+.nInfo{
+	margin-right:10px;
+}
+.noticeViewContent{
+	min-height:500px;
+	margin:10px 20px;
+	font-size:0.9rem;
+	border-bottom:1px solid #eee;
+}
+.mdBtn-wrap{
+	margin-bottom:10px;
+	text-align:center;
+}
+.comment-wrap{
+	margin-top:50px;
+	width:800px;
+	height:400px;
+	background-color:lightblue;
+}
+.noticeViewTitle>input{
+	padding:0 10px;
+	display:block;
+	width:100%;
+	height:30px;
+	box-sizing:border-box;
+	outline:none;
+	border:1px solid #999;
+}
+#modifyContentNote+div{
+	margin:10px;
+}

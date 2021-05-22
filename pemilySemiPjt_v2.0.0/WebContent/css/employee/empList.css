@@ -1,0 +1,18 @@
+#empList td:fisrt-child{
+	width:10%;
+}
+#empList td:nth-child(2){
+	width:20%;
+}
+#empList td:nth-child(3){
+	width:20%;
+}
+#empList td:nth-child(4){
+	width:20%;
+}
+#empList td:nth-child(5){
+	width:10%;
+}
+#empList td:nth-child(6){
+	width:20%;
+}

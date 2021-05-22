@@ -1,0 +1,14 @@
+/* 공지사항 테이블 CSS */
+#notice-table td:first-child>a{
+    padding-left:40px;
+	text-align:left;
+}
+#notice-table td:first-child:hover{
+    text-decoration: underline;
+}
+#notice-table td:nth-child(2){
+	width:150px;	
+}
+#notice-table td:nth-child(3){
+	width:150px;
+}
