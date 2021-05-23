@@ -28,6 +28,11 @@ public class CaService {
 		JDBCTemplate.close(conn);
 		return totalCount;
 	}
+
+	public int insertCa(Ca ca) {
+		
+		return 0;
+	}
 	
 	
 

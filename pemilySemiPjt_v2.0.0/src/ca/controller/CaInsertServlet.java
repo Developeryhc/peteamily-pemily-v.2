@@ -37,7 +37,7 @@ public class CaInsertServlet extends HttpServlet {
 		ca.setCaTitle(request.getParameter("title"));
 		ca.setCaContent(request.getParameter("content"));
 		// 3. 비즈니스 로직
-//		int result = new CaService().insertCa(ca);
+		int result = new CaService().insertCa(ca);
 	}
 
 	/**
