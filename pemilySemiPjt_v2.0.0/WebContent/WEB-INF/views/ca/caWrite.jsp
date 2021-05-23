@@ -6,11 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-	.title{
+	.form-wrap{
+		width: 1000px;
+		margin: 0 auto;
+	}
+	.form-line{
 		outline: none;
 		border: 1px solid #00000032;
 		border-radius: 3px;
-		width: 99.45%;
+		height: 30px;
+	}
+	.title{
+		width: 100%;
 		height: 30px;
 	}
 	.note-editor{
@@ -39,13 +46,76 @@
 	<div class="container">
 		<h1 style="text-align:center;">AdoptUpdate</h1>	
 		<form action="/caInsert" method="post" enctype="multipart/form-data">
-		<input type="text" class="title" name="title" placeholder=" 제목을 입력해주세요.">
-		<textarea class="summernote" name="content"></textarea>
-		<div class="btn-wrap">
-			<button type="submit" class="update">Update</button>
-			<button type="reset" class="cancel">Cancel</button>
-		</div>
+			<div class="form-wrap">
+				<input type="text" class="form-line title" name="title" placeholder=" 제목을 입력해주세요.">
+				<select class="form-line">
+					<option>1. 강아지</option>
+					<option>2. 고양이</option>
+					<option>3. 물고기</option>
+					<option>4. 설치류</option>
+					<option>5. 도마뱀</option>
+				</select>
+				<textarea class="form-control" id="summernote" value="" name="careContent"></textarea>
+				<div class="btn-wrap">
+					<button type="submit" class="update">Update</button>
+					<button type="reset" class="cancel">Cancel</button>
+				</div>
+			</div>
 		</form>
 	</div>
+<script>
+// summernote
+$(document).ready(function() {
+    $('#summernote').summernote({
+    	placeholder: "게시글을 작성해주세요",
+            height: 200,                 // set editor height
+            minHeight:400,             // set minimum height of editor
+            focus: false ,                 // set focus to editable area after initializing summernote
+            lang : "ko-KR",
+            callbacks: { // 콜백 사용
+           	   // 이미지 업로드할 경우 이벤트 발생
+           	   onImageUpload:function(files) {
+           	       uploadImage(files[0],this);
+           	   },
+           	   onPaste : function(e){
+           		   var clipboardData = e.originalEvent.clipboardData;
+           		   if(clipboardData && clipboardData.items && clipboardData.items.length){
+           			   var item = clipboardData.items[0];
+           			   	if(item.kind == 'file' && item.type.indexOf('image/') !== -1){
+           			   		e.preventDefault();
+           			   	}
+           		   }
+           	   }
+       	  }	
+    });
+});
+function uploadImage(file, editor) {
+    // 파일 전송을 위한 폼생성
+ data = new FormData();
+    data.append("file", file);
+    $.ajax({ // ajax를 통해 파일 업로드 처리
+        data : data,
+        type : "POST",
+        url : "/uploadImage",
+        cache : false,
+        contentType : false,
+        processData : false,
+        success : function(data) { // 처리가 성공할 경우
+            // 에디터에 이미지 출력
+         $(editor).summernote('insertImage', data);
+        }
+    });    
+}
+function check(){
+	var sCheck = $("#summernote").val().replace(/\s|/gi,'');
+	if(sCheck == ""){
+		alert("내용을 입력해주세요.");
+		$("#summernote").val("");
+		$("#summernote").focus();
+		return false;
+	}
+	return true;
+};
+</script>
 </body>
 </html>

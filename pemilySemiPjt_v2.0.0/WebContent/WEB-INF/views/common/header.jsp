@@ -79,8 +79,9 @@
 	        background-color:rgba(182, 215, 168, 0.54);
 	        position:fixed;
 	        top:130px;
-	        right:30px;
-	        border-radius: 30px;
+	        right:0;
+	        border-top-left-radius: 30px;
+	        border-bottom-left-radius: 30px;
 	    }
 	    .test ul{
 	    	padding: 0;
@@ -102,11 +103,12 @@
 	    .go-top{
 	        width:50px;
 	        height:50px;
-	        background-color: rgb(232,69,86);
+	        background-color: rgba(182, 215, 168, 0.54);
 	        position:fixed;
 	        bottom:100px;
 	        left:100px;
 	        cursor:pointer;
+	        border-radius: 50px;
 	    }
     </style>
 </head>

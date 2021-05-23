@@ -1,6 +1,7 @@
 package ca.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import inca.model.service.IncaService;
+import inca.model.vo.Inca;
 
 /**
  * Servlet implementation class AdoptWriteServlet
@@ -30,6 +34,8 @@ public class CaWriteFrmServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 인코딩
 		request.setCharacterEncoding("UTF-8");
+		// 2, 3. 페이지 이동으로 인한 생략
+		// 4. 결과 처리
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/caWrite.jsp");
 		rd.forward(request, response);
 	}

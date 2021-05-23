@@ -97,7 +97,7 @@
 				<li><a href="/caViewList?incaNo=6">Rodent</a></li>
 				<li><a href="/caViewList?incaNo=7">Snake</a></li>
 				<li><a href="/caViewList?incaNo=8">Arthropod</a></li>
-				<li><a href="/caWrite">Ca Upload</a></li>
+				<li><a href="/caWriteFrm">Ca Upload</a></li>
 				<li><a href="/incaWrite">Inca Upload</a></li>
 			</ul>
 		</div>
