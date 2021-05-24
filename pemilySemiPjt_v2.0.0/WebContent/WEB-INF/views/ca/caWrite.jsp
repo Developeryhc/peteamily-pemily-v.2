@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	int incaNo = (Integer)request.getAttribute("incaNo");
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -45,22 +48,32 @@
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="container">
 		<h1 style="text-align:center;">AdoptUpdate</h1>	
-		<form action="/caInsert" method="post" enctype="multipart/form-data">
-			<div class="form-wrap">
-				<input type="text" class="form-line title" name="title" placeholder=" 제목을 입력해주세요.">
-				<select class="form-line">
-					<option>1. 강아지</option>
-					<option>2. 고양이</option>
-					<option>3. 물고기</option>
-					<option>4. 설치류</option>
-					<option>5. 도마뱀</option>
-				</select>
-				<textarea class="form-control" id="summernote" value="" name="careContent"></textarea>
-				<div class="btn-wrap">
-					<button type="submit" class="update">Update</button>
-					<button type="reset" class="cancel">Cancel</button>
-				</div>
-			</div>
+		<form action="/caWrite" method="post" enctype="multipart/form-data">
+			<table class="form-wrap">
+				<tr>
+					<th>
+						<input type="text" class="form-line title" name="title" placeholder=" 제목을 입력해주세요.">
+					</th>
+				</tr>
+				<tr>
+					<th>
+						<input type="hidden" name="incaNo" value="<%=incaNo%>"><input type="text" value="<%=incaNo%>" readonly>
+					</th>
+				</tr >
+				<tr>
+					<th>
+						<textarea class="form-control" id="summernote" value="" name="careContent"></textarea>
+					</th>
+				</tr>
+				<tr>
+					<th>
+						<div class="btn-wrap">
+							<button type="submit" class="update">Update</button>
+							<button type="reset" class="cancel">Cancel</button>
+						</div>
+					</th>
+				</tr>
+			</table>
 		</form>
 	</div>
 <script>

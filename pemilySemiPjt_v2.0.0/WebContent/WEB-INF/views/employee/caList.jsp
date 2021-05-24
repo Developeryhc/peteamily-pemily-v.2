@@ -40,7 +40,7 @@
             		String store = inca.getIncaStore()==1?"본사":(inca.getIncaStore()==2?"강남":"부산");
             	%>
                 <tr>
-                	<td><%=inca.getSort() %></td><td><%=ani %></td><td><%=inca.getIncaName() %></td><td><%=inca.getIncaMonth() %></td><td><%=inca.getIncaPrice() %><span class="won">원</span></td><td><%=condition %></td><td><%=store %></td><td><%=adopt %></td><td><button type="button" class="mdBtn modifyBtn" value="<%=inca.getIncaNo()%>">수정</button></td><td><button type="button" class="mdBtn deleteBtn" value="<%=inca.getIncaNo()%>">삭제</button></td>
+                	<td><%=inca.getSort() %></td><td><%=ani %></td><td><a href="/caWriteFrm?incaNo=<%=inca.getIncaNo()%>"><%=inca.getIncaName() %></a></td><td><%=inca.getIncaMonth() %></td><td><%=inca.getIncaPrice() %><span class="won">원</span></td><td><%=condition %></td><td><%=store %></td><td><%=adopt %></td><td><button type="button" class="mdBtn modifyBtn" value="<%=inca.getIncaNo()%>">수정</button></td><td><button type="button" class="mdBtn deleteBtn" value="<%=inca.getIncaNo()%>">삭제</button></td>
                 </tr>
                 <%} %>
             </tbody>

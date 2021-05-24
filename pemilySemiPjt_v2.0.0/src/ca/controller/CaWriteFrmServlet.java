@@ -34,9 +34,12 @@ public class CaWriteFrmServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 인코딩
 		request.setCharacterEncoding("UTF-8");
-		// 2, 3. 페이지 이동으로 인한 생략
+		// 2. 값 추출
+		int incaNo = Integer.parseInt(request.getParameter("incaNo"));
+		// 3. 비즈니스 로직
 		// 4. 결과 처리
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/caWrite.jsp");
+		request.setAttribute("incaNo", incaNo);
 		rd.forward(request, response);
 	}
 
