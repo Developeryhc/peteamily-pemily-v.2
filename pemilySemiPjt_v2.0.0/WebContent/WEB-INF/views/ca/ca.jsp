@@ -56,15 +56,15 @@
 	<script type="text/javascript"></script>
 	<div class="container">
 		<ul class="ul">
-			<li class="li"><input type="hidden" value="2"><a href="/caViewList?incaNo=2">강아지</a><input type="hidden" value="강아지"></li>
-			<li class="li"><input type="hidden" value="3"><a href="/caViewList?incaNo=3">고양이</a><input type="hidden" value="고양이"></li>
-			<li class="li"><input type="hidden" value="4"><a href="/caViewList?incaNo=4">물고기</a><input type="hidden" value="물고기"></li>
-			<li class="li"><input type="hidden" value="5"><a href="/caViewList?incaNo=5">도마뱀</a><input type="hidden" value="도마뱀"></li>
+			<li class="li"><input type="hidden" value="2"><a href="/caViewList?incaAn=2">강아지</a><input type="hidden" value="강아지"></li>
+			<li class="li"><input type="hidden" value="3"><a href="/caViewList?incaAn=3">고양이</a><input type="hidden" value="고양이"></li>
+			<li class="li"><input type="hidden" value="4"><a href="/caViewList?incaAn=4">물고기</a><input type="hidden" value="물고기"></li>
+			<li class="li"><input type="hidden" value="5"><a href="/caViewList?incaAn=5">도마뱀</a><input type="hidden" value="도마뱀"></li>
 		</ul>
 		<ul class="ul">
-			<li class="li"><input type="hidden" value="6"><a href="/caViewList?incaNo=6">설치류</a><input type="hidden" value="설치류"></li>
-			<li class="li"><input type="hidden" value="7"><a href="/caViewList?incaNo=7">뱀류</a><input type="hidden" value="뱀류"></li>
-			<li class="li"><input type="hidden" value="8"><a href="/caViewList?incaNo=8">절지류</a><input type="hidden" value="절지류"></li>
+			<li class="li"><input type="hidden" value="6"><a href="/caViewList?incaAn=6">설치류</a><input type="hidden" value="설치류"></li>
+			<li class="li"><input type="hidden" value="7"><a href="/caViewList?incaAn=7">뱀류</a><input type="hidden" value="뱀류"></li>
+			<li class="li"><input type="hidden" value="8"><a href="/caViewList?incaAn=8">절지류</a><input type="hidden" value="절지류"></li>
 			<li class="li"><input type="hidden" value="1"><a href="/">뒤로가기</a><input type="hidden" value="뒤로가기"></li>
 		</ul>
 	</div>

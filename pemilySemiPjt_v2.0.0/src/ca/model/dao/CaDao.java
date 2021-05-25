@@ -68,14 +68,14 @@ public class CaDao {
 		return ca;
 	}
 
-	public int totalCount(Connection conn, int incaNo) {
+	public int totalCount(Connection conn, int incaAn) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		int totalCount = 0;
 		String query = "SELECT COUNT(*) CNT FROM (SELECT * FROM INCA JOIN CA ON INCA_NO = CA.CA_AN WHERE INCA_AN = ? AND NOT INCA_CONDITION = 0)";
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, incaNo);
+			pstmt.setInt(1, incaAn);
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
 				totalCount = rset.getInt("CNT");

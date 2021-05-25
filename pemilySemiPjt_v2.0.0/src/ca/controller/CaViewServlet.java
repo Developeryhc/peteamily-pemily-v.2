@@ -36,10 +36,10 @@ public class CaViewServlet extends HttpServlet {
 		// 1. 
 		request.setCharacterEncoding("UTF-8");
 		// 2.
-		int incaNo = Integer.parseInt(request.getParameter("incaNo"));
+		int incaAn = Integer.parseInt(request.getParameter("incaAn"));
 		int start = Integer.parseInt(request.getParameter("start"));
 		// 3.
-		ArrayList<Adopt> adopt = new IncaService().selectOneTypeInca(incaNo, start);
+		ArrayList<Adopt> adopt = new IncaService().selectOneTypeInca(incaAn, start);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		new Gson().toJson(adopt, response.getWriter());
