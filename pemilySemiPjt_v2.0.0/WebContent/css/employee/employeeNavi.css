@@ -4,6 +4,7 @@
 	width:100%;
 	margin:0 auto;
     background-color: rgba(242, 217, 207, 0.84);
+    z-index:1000;
 }
 .emp-nav{
     width:800px;
@@ -18,6 +19,7 @@
     height:50px;
     line-height:50px;
     text-align:center;
+    position:relative;
 }
 .emp-nav a{
     display:block;
@@ -31,4 +33,21 @@
 .emp-nav>li:hover>a{
     color:#555;
     background-color:rgb(246,246,246);
+}
+.subMenu1{
+	list-style:none;
+	padding:0;
+	margin:0;
+	height:0;
+	overflow:hidden;
+	transition-duration:0.3s;
+	position:abolute;
+	top:50px;
+}
+.subMenu1>li>a{
+	color:#555;
+    background-color:rgba(0,0,0,0.2);
+}
+.subMenu1>li:hover>a{
+	color:rgb(246,246,246);
 }

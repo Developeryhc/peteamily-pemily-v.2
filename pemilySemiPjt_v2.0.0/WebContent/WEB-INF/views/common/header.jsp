@@ -132,7 +132,7 @@
             </ul>
         </div>
         <%if(m != null){ %>
-        <a class="empLink" href="/employeeMain">직원페이지</a>
+        <a class="empLink" href="/noticeEmpList?reqPage=1&noticeCom=1">직원페이지</a>
         <%} %>
         <%if(m!=null && m.getMemberGrade() == 1){ %>
         

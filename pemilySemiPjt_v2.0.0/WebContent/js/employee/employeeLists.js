@@ -93,8 +93,20 @@ $(function(){
 		}
 		reBackBtn($(this));
 	});
-	
+	//서브메뉴 mouseover/out
+	$('.emp-nav>li').mouseover(function(){
+        const subMenu = $(this).children().next().children();
+        let height = 0;
+        for(var i=0;i<subMenu.length;i++){
+            height += subMenu.eq(i).height();
+        }
+        $(this).children().next().height(height);
+    });
+    $('.emp-nav>li').mouseout(function(){
+        $(this).children().next().removeAttr('style');
+    });
 });
+///////////////////////////////////////////////////////////////////////////////////////////////
 //직원 공지 수정 완료 클릭 시
 function noticeModifyAjax(hiddenModiChk){
 	const noticeContent = $('#modifyContentNote').val();
@@ -211,7 +223,6 @@ function modifyOn(ele){
 	ele.parent().prev().children().eq(0).hide();
 	ele.parent().prev().children().eq(1).hide();
 	ele.parent().prev().children().eq(2).show().css('width','100px');
-	
 	
 	
 	//완료/취소 버튼 show
