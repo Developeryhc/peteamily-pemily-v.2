@@ -90,6 +90,26 @@ public class CaDao {
 		return totalCount;
 	}
 
+	public int insertCa(Connection conn, Ca ca) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "INSERT INTO ca VALUES(ca_seq.NEXTVAL, ?, ?, ?, ?, DEFAULT)";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, ca.getCaAn());
+			pstmt.setString(2, ca.getCaWriter());
+			pstmt.setString(3, ca.getCaTitle());
+			pstmt.setString(4, ca.getCaContent());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
 	
 
 }

@@ -1,8 +1,10 @@
+<%@page import="inca.model.vo.Inca"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	int incaNo = (Integer)request.getAttribute("incaNo");
+	Inca i = (Inca)request.getAttribute("i");
+	
 %>
 <html>
 <head>
@@ -19,6 +21,27 @@
 		border-radius: 3px;
 		height: 30px;
 	}
+	.th-wrap th{
+		height: 30px;
+		width: 25%;
+   		font-family: 'Do Hyeon', sans-serif;
+   		font-size: 18px;
+	}
+	.th-wrap input{
+		outline: none;
+		width: 100%;
+		height: 100%;
+		border: none;
+		margin:0;
+		text-align: center;
+		background-color: rgba(242, 217, 207, 0.84);
+	}
+	.th-wrap th:nth-child(2n-1){
+		margin: 0;
+		heigth: 100%;
+		background-color: rgb(232,69,86);
+		color: rgb(246,246,246);
+	}
 	.title{
 		width: 100%;
 		height: 30px;
@@ -28,8 +51,10 @@
 	}
 	button{
 		border: none;
-		width: 80px;
-		height: 30px;
+		width: 100px;
+		height: 50px;
+		font-size: 18px;
+   		font-family: 'Do Hyeon', sans-serif;
 	}
 	.update{
 		background-color: rgba(238, 140, 148, 0.60);
@@ -39,34 +64,39 @@
 		background-color: rgba(242, 217, 207, 0.84);
 		box-shadow: 1px 1px 1px 1px rgba(242, 217, 207, 0.3);
 	}
-	.btn-wrap{
-		text-align: center;
-	}
 </style>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="container">
-		<h1 style="text-align:center;">AdoptUpdate</h1>	
+		<%--
+ 		<input type="hidden" name="incaGender" value="<%=i.getIncaGender() %>">
+		<input type="hidden" name="incaMonth" value="<%=i.getIncaMonth() %>">
+		<input type="hidden" name="incaStore" value="<%=i.getIncaStore() %>">
+		--%>
+		<input type="hidden" name="empId" value="<%=e.getEmpId() %>">
+		<h1 style="text-align:center; font-family:'Do Hyeon', sans-serif;">반려동물 등록</h1>	
 		<form action="/caWrite" method="post" enctype="multipart/form-data">
 			<table class="form-wrap">
-				<tr>
-					<th>
-						<input type="text" class="form-line title" name="title" placeholder=" 제목을 입력해주세요.">
+				<tr class="th-wrap">
+					<th>제목</th>
+					<th colspan="3">
+						<input type="text" class="form-line title" name="caTitle" style="font-family:'Do Hyeon', sans-serif;" placeholder=" 제목을 입력해주세요.">
 					</th>
 				</tr>
-				<tr>
-					<th>
-						<input type="hidden" name="incaNo" value="<%=incaNo%>"><input type="text" value="<%=incaNo%>" readonly>
-					</th>
+				<tr class="th-wrap">
+					<th>수번<input type="hidden" name="incaNo" value="<%=i.getIncaNo()%>"></th>
+					<th><input type="text" value="<%=i.getIncaNo()%>" style="font-family:'Do Hyeon', sans-serif;" readonly></th>
+					<th>이름</th><%--<input type="hidden" name="incaName" value="<%=i.getIncaName() %>"> --%>
+					<th><input type="text" value="<%=i.getIncaName()%>" style="font-family:'Do Hyeon', sans-serif;" readonly></th>
 				</tr >
 				<tr>
-					<th>
-						<textarea class="form-control" id="summernote" value="" name="careContent"></textarea>
+					<th colspan="4">
+						<textarea class="form-control" id="summernote" name="caContent" name="careContent"></textarea>
 					</th>
 				</tr>
 				<tr>
-					<th>
+					<th colspan="4">
 						<div class="btn-wrap">
 							<button type="submit" class="update">Update</button>
 							<button type="reset" class="cancel">Cancel</button>
@@ -76,6 +106,7 @@
 			</table>
 		</form>
 	</div>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 <script>
 // summernote
 $(document).ready(function() {

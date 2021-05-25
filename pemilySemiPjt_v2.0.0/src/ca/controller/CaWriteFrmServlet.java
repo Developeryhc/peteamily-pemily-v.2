@@ -37,9 +37,10 @@ public class CaWriteFrmServlet extends HttpServlet {
 		// 2. 값 추출
 		int incaNo = Integer.parseInt(request.getParameter("incaNo"));
 		// 3. 비즈니스 로직
+		Inca i = new IncaService().selectOneInca(incaNo);
 		// 4. 결과 처리
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/caWrite.jsp");
-		request.setAttribute("incaNo", incaNo);
+		request.setAttribute("i", i);
 		rd.forward(request, response);
 	}
 

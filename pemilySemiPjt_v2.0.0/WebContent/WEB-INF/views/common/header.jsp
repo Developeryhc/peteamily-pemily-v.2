@@ -1,3 +1,4 @@
+<%@page import="employee.model.vo.Employee"%>
 <%@page import="javax.mail.Session"%>
 <%@page import="org.apache.catalina.SessionListener"%>
 <%@page import="member.model.vo.Member"%>
@@ -5,7 +6,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	Member m = (Member)session.getAttribute("m");
+	Member m = null;
+	Employee e = null;
+	if((Member)session.getAttribute("m") == null){
+		e = (Employee)session.getAttribute("e");		
+	}else{
+		m = (Member)session.getAttribute("m");		
+	}
 %>
 <html>
 <head>
@@ -49,6 +56,7 @@
             display:flex;
             align-items: flex-end;
             flex-direction: row;
+            font-size: 24px;
 			font-family: 'Yanone Kaffeesatz', sans-serif;
         }
         .menu{
