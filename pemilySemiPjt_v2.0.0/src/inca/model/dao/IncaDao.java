@@ -14,14 +14,14 @@ import inca.model.vo.Inca;
 public class IncaDao {
 	
 	// 한가지 타입만 조회
-	public ArrayList<Adopt> selectOneTypeInca(Connection conn, int incaNo, int start, int end) {
+	public ArrayList<Adopt> selectOneTypeInca(Connection conn, int incaAn, int start, int end) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Adopt> adopt = new ArrayList<Adopt>();
 		String query = "SELECT * FROM (SELECT ROWNUM AS RNUM, I.* FROM (SELECT * FROM INCA WHERE INCA_AN = ? AND NOT INCA_CONDITION = 0)I) JOIN CA ON INCA_NO = CA.CA_AN WHERE RNUM BETWEEN ? AND ?";
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, incaNo);
+			pstmt.setInt(1, incaAn);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
 			rset = pstmt.executeQuery();

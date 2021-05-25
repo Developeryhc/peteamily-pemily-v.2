@@ -33,12 +33,12 @@ public class CaViewListServlet extends HttpServlet {
 		// 1.
 		request.setCharacterEncoding("UTF-8");
 		// 2.
-		int incaNo = Integer.parseInt(request.getParameter("incaNo"));
+		int incaAn = Integer.parseInt(request.getParameter("incaAn"));
 		// 3.
-		int totalCount = new CaService().totalCount(incaNo);
+		int totalCount = new CaService().totalCount(incaAn);
 		// 4.
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/caViewList.jsp");
-		request.setAttribute("incaNo", incaNo);
+		request.setAttribute("incaAn", incaAn);
 		request.setAttribute("totalCount", totalCount);
 		rd.forward(request, response);
 	}

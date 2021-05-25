@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%
     int totalCount = (Integer)request.getAttribute("totalCount");
-    int incaAn = (Integer)request.getAttribute("incaNo");
+    int incaAn = (Integer)request.getAttribute("incaAn");
     %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -62,10 +62,10 @@
 		</div>
 	</div>
 	<script>
+	var incaAn = <%=incaAn%>;
 	$(function(){
-		var incaNo = <%=incaAn%>;
+		list(incaAn, 1);
 		var m = "1";
-		list(incaNo, 1);
 		$(".more-btn").click(function(){
 			list(incaNo, $(".more-btn").val());
 		});
@@ -84,7 +84,7 @@
 		$.ajax({
 			url : "/caView",
 			data : {
-				incaNo : incaNo,
+				incaAn : incaAn,
 				start : start
 			},
 			type : "post",

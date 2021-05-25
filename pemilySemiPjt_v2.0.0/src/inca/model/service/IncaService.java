@@ -11,11 +11,11 @@ import inca.model.vo.IncaPage;
 
 public class IncaService {
 
-	public ArrayList<Adopt> selectOneTypeInca(int incaNo, int start) {
+	public ArrayList<Adopt> selectOneTypeInca(int incaAn, int start) {
 		Connection conn = JDBCTemplate.getConnection();
 		int length = 4;
 		int end = start+length-1;
-		ArrayList<Adopt> adopt = new IncaDao().selectOneTypeInca(conn, incaNo, start, end);
+		ArrayList<Adopt> adopt = new IncaDao().selectOneTypeInca(conn, incaAn, start, end);
 		JDBCTemplate.close(conn);
 		return adopt;
 	}

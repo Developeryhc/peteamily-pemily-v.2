@@ -22,9 +22,9 @@ public class CaService {
 		return ca;
 	}
 
-	public int totalCount(int incaNo) {
+	public int totalCount(int incaAn) {
 		Connection conn = JDBCTemplate.getConnection();
-		int totalCount = new CaDao().totalCount(conn, incaNo);
+		int totalCount = new CaDao().totalCount(conn, incaAn);
 		JDBCTemplate.close(conn);
 		return totalCount;
 	}

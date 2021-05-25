@@ -93,7 +93,6 @@ public class OutCaDao {
 				oct.setOutcaPrice(rset.getInt("inca_price"));
 				oct.setOutcaEmp(rset.getString("ca_writer"));
 				oct.setOutcaMember(rset.getString("member_id"));
-				System.out.println(oct.getOutcaMember());
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
