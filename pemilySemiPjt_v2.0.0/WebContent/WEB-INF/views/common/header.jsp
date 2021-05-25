@@ -4,6 +4,8 @@
 <%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <!-- jstl core tag  -->
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	Member m = null;
@@ -131,12 +133,14 @@
                 <li class="menu"><a href="/view/contactMain.jsp">Contact</a></li>
             </ul>
         </div>
-        <a class="empLink" href="/empLoginFrm">직원페이지</a>
-        <%if(m != null){ %>
-        <%} %>
-        <%if(m!=null && m.getMemberGrade() == 1){ %>
-        
-        <%} %>
+        <c:choose>
+	        <c:when test="${empty sessionScope.e }">
+	        <a class="empLink" href="/empLoginFrm">직원페이지</a>
+			</c:when>
+			<c:otherwise>			
+	        <a class="empLink" href="/noticeEmpList?reqPage=1&noticeCom=1">직원페이지</a>
+			</c:otherwise>
+        </c:choose>
     </header>
     <div class="testWrap">
 		<div class="test">
@@ -193,6 +197,7 @@ $(".test-li").click(function(){
 	}else if(index == 1){
 		location.href="joinFrm";
 	}else if(index == 2){
+		window.open('https://open.kakao.com/o/s7Krolfd','_blink','width=1000px,height=600px,top=100px,left=200px');
 		location.href="#";
 	}
 });
@@ -205,6 +210,7 @@ $(".login-li").click(function(){
 	}else if(index == 3){
 		location.href="#";
 	}else if(index == 4){
+		window.open('https://open.kakao.com/o/s7Krolfd','_blink','width=1000px,height=600px,top=100px,left=200px');
 		location.href="#";
 	}
 });

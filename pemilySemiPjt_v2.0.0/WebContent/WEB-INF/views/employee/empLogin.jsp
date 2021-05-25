@@ -13,8 +13,9 @@
 			<input type="password" id="empPw" name="empPw" placeholder="비밀번호">
 			<button type="button" class="designFrm" id="empLoignChk">로그인</button>
 			<a href="/moveEmpSginUp" class="designFrm">직원가입</a>
-		</form>
+		</form>		
 		<script>
+			
 			$('#empLoignChk').click(function(){
 				 console.log('test');
 				const empId = $('#empId').val();

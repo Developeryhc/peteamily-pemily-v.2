@@ -19,7 +19,7 @@
 	}
 	.iiimg{
 		width:100%;
-		hwight:100%;
+		height:100%;
 	}
 </style>
 </head>
@@ -29,7 +29,7 @@
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
 	<%
 		String condition = inca.getIncaCondition() == 0 ? "1차" : (inca.getIncaCondition() == 1 ? "2차" : "완료");
-		String ani = inca.getIncaAn()==1?"강아지":(inca.getIncaAn()==2?"고양이":(inca.getIncaAn()==3?"어류":(inca.getIncaAn()==4?"도마뱀":(inca.getIncaAn()==5?"설치류":(inca.getIncaAn()==6?"뱀":(inca.getIncaAn()==7?"절지류":"기타"))))));            		
+		String ani = inca.getIncaAn()==2?"강아지":(inca.getIncaAn()==3?"고양이":(inca.getIncaAn()==4?"어류":(inca.getIncaAn()==5?"도마뱀":(inca.getIncaAn()==6?"설치류":(inca.getIncaAn()==7?"뱀":(inca.getIncaAn()==8?"절지류":"기타"))))));            		
 		String adopt = inca.getIncaCondition()<2?"불가":"가능";
 		String store = inca.getIncaStore()==1?"본사":(inca.getIncaStore()==2?"강남":"부산");
 		String gender = inca.getIncaGender() == "F"?"여아":"남아";
