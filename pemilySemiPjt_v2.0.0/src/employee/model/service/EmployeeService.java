@@ -51,4 +51,11 @@ public class EmployeeService {
 		return ep;
 	}
 
+	public Employee selectOneEmployee(String empId, String empPw) {
+		Connection conn = JDBCTemplate.getConnection();
+		Employee emp = new EmployeeDao().selectOneEmployee(conn,empId,empPw);
+		JDBCTemplate.close(conn);
+		return emp;
+	}
+
 }

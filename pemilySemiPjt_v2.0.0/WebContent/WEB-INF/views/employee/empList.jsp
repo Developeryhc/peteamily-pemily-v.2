@@ -31,13 +31,13 @@
 	            </tr>
 	        </thead>
 	        <tbody>
-	            <%for(Employee e : list){ %>
+	            <%for(Employee emp : list){ %>
 	            <%
-	            	String store = e.getEmpStore() == 1 ? "본사" : (e.getEmpStore() == 2 ? "강남" : "부산");
-	            	String position = e.getEmpGrade() == 1?"회장":(e.getEmpStore()==2?"지점장":(e.getEmpStore()==3?"주임":"사원"));
+	            	String store = emp.getEmpStore() == 1 ? "본사" : (emp.getEmpStore() == 2 ? "강남" : "부산");
+	            	String position = emp.getEmpGrade() == 1?"회장":(emp.getEmpStore()==2?"지점장":(emp.getEmpStore()==3?"주임":"사원"));
 	            %>
 	            <tr>
-	            	<td><%=e.getSort() %></td><td><%=e.getEmpId() %></td><td><%=e.getEmpName()%></td><td><%=store %></td><td><%=position %></td><td><%=e.getEmpPhone() %>	
+	            	<td><%=emp.getSort() %></td><td><%=emp.getEmpId() %></td><td><%=emp.getEmpName()%></td><td><%=store %></td><td><%=position %></td><td><%=emp.getEmpPhone() %>	
 	            </tr>
 	            <%} %>
 	        </tbody>

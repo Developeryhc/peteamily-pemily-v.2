@@ -131,8 +131,8 @@
                 <li class="menu"><a href="/view/contactMain.jsp">Contact</a></li>
             </ul>
         </div>
+        <a class="empLink" href="/empLoginFrm">직원페이지</a>
         <%if(m != null){ %>
-        <a class="empLink" href="/noticeEmpList?reqPage=1&noticeCom=1">직원페이지</a>
         <%} %>
         <%if(m!=null && m.getMemberGrade() == 1){ %>
         
@@ -141,11 +141,11 @@
     <div class="testWrap">
 		<div class="test">
 			<ul>
-				<%if(m == null){ %>
+				<%if(m == null || e == null){ %>
 				<li class="test-li"><img src="/img/login.png"></li>
 				<li class="test-li"><img src="/img/join.png"></li>
 				<%}else{ %>
-					<li class="login-li"><p><%=m.getMemberName() %></p></li>
+					<li class="login-li"><p><%=m.getMemberName() %><%=e.getEmpName() %></p></li>
 					<li class="login-li"><img src="/img/logout.png"></li>
 					<li class="login-li"><img src="/img/mypage.png"></li>
 					<li class="login-li"><img src="/img/cart.png"></li>

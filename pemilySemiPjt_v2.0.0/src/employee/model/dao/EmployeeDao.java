@@ -69,4 +69,39 @@ public class EmployeeDao {
 		return count;
 	}
 
+	public Employee selectOneEmployee(Connection conn, String empId, String empPw) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Employee emp = null;
+		String query = "select * from emp where emp_id=? and emp_pw=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, empId);
+			pstmt.setString(2, empPw);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				emp = new Employee();
+				emp.setEmpAddr(rset.getString("emp_addr"));
+				emp.setEmpEnter(rset.getString("emp_enter"));
+				emp.setEmpGender(rset.getString("emp_gender"));
+				emp.setEmpGrade(rset.getInt("emp_grade"));
+				emp.setEmpId(rset.getString("emp_id"));
+				emp.setEmpName(rset.getString("emp_name"));
+				emp.setEmpNo(rset.getInt("emp_no"));
+				emp.setEmpPath(rset.getString("emp_path"));
+				emp.setEmpPhone(rset.getString("emp_phone"));
+				emp.setEmpPic(rset.getString("emp_pic"));
+				emp.setEmpPw(rset.getString("emp_pw"));
+				emp.setEmpStore(rset.getInt("emp_store"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return emp;
+	}
+
 }
