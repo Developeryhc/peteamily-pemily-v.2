@@ -16,7 +16,7 @@
 	border: 1px solid black;
 	margin: auto;
 	padding: 60px 90px 60px 90px;
-	display: hidden;
+	display: none;
 	}
 </style>
 </head>
@@ -209,7 +209,6 @@
         </form>
         
         <!-- 물품재고 등록 form -->
-        <div class="wrap-2">
         <form class="forms" id="inProFrm" action="/inProductWrite" method="post" enctype="multipart/form-data">
         	<h2>물품 재고 등록</h2>
         	<div class="inProWrap">
@@ -239,18 +238,8 @@
         		</div>
         	</div>
         </form>
-
+        <div class="wrap-2">
         </div>
-        <form class="forms" id="parcelOutFrm" action="javascript:void(0);">
-        	<h2>분양 등록</h2>
-        	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
-            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
-        </form>
-        <form class="forms" id="goodsFrm" action="javascript:void(0);">
-        	<h2>물품 등록</h2>
-        	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
-            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
-        </form>
     </section>
     <%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
