@@ -141,11 +141,19 @@
     <div class="testWrap">
 		<div class="test">
 			<ul>
-				<%if(m == null || e == null){ %>
+				<%if(m == null && e == null){ %>
 				<li class="test-li"><img src="/img/login.png"></li>
 				<li class="test-li"><img src="/img/join.png"></li>
 				<%}else{ %>
-					<li class="login-li"><p><%=m.getMemberName() %><%=e.getEmpName() %></p></li>
+					<li class="login-li">
+						<p>
+							<%if(m == null){ %>
+							<%=e.getEmpName() %>
+							<%}else{ %>
+							<%=m.getMemberName() %>
+							<%} %>
+						</p>
+					</li>
 					<li class="login-li"><img src="/img/logout.png"></li>
 					<li class="login-li"><img src="/img/mypage.png"></li>
 					<li class="login-li"><img src="/img/cart.png"></li>
@@ -157,7 +165,7 @@
 	</div>
 <script>
 $(function(){
-	<%if(m==null){%>
+	<%if(m==null && e==null){%>
 	$(".test").css("height", "250px");
 	<%}else{%>
 	$(".test").css("height", "390px")

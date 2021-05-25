@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	Inca i = (Inca)request.getAttribute("i");
-	
 %>
 <html>
 <head>
@@ -69,14 +68,9 @@
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="container">
-		<%--
- 		<input type="hidden" name="incaGender" value="<%=i.getIncaGender() %>">
-		<input type="hidden" name="incaMonth" value="<%=i.getIncaMonth() %>">
-		<input type="hidden" name="incaStore" value="<%=i.getIncaStore() %>">
-		--%>
 		<input type="hidden" name="empId" value="<%=e.getEmpId() %>">
 		<h1 style="text-align:center; font-family:'Do Hyeon', sans-serif;">반려동물 등록</h1>	
-		<form action="/caWrite" method="post" enctype="multipart/form-data">
+		<form action="/caWrite" method="post">
 			<table class="form-wrap">
 				<tr class="th-wrap">
 					<th>제목</th>
@@ -85,9 +79,9 @@
 					</th>
 				</tr>
 				<tr class="th-wrap">
-					<th>수번<input type="hidden" name="incaNo" value="<%=i.getIncaNo()%>"></th>
-					<th><input type="text" value="<%=i.getIncaNo()%>" style="font-family:'Do Hyeon', sans-serif;" readonly></th>
-					<th>이름</th><%--<input type="hidden" name="incaName" value="<%=i.getIncaName() %>"> --%>
+					<th>수번</th>
+					<th><input type="text" value="<%=i.getIncaNo()%>" name="incaNo" style="font-family:'Do Hyeon', sans-serif;" readonly></th>
+					<th>이름</th>
 					<th><input type="text" value="<%=i.getIncaName()%>" style="font-family:'Do Hyeon', sans-serif;" readonly></th>
 				</tr >
 				<tr>
@@ -99,7 +93,7 @@
 					<th colspan="4">
 						<div class="btn-wrap">
 							<button type="submit" class="update">Update</button>
-							<button type="reset" class="cancel">Cancel</button>
+							<button type="button" class="cancel">Cancel</button>
 						</div>
 					</th>
 				</tr>
@@ -108,6 +102,12 @@
 	</div>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 <script>
+$(".btn-wrap").children().hover(function(){
+	$(this).css("cursor", "pointer");
+});
+$(".cancel").click(function(){
+	window.history.back();
+});
 // summernote
 $(document).ready(function() {
     $('#summernote').summernote({

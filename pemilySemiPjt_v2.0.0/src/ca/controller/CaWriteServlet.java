@@ -39,6 +39,7 @@ public class CaWriteServlet extends HttpServlet {
 		c.setCaTitle(request.getParameter("caTitle"));
 		c.setCaContent(request.getParameter("caContent"));
 		c.setCaWriter(request.getParameter("empId"));
+		System.out.println(c.getCaAn());
 		// 3. 비즈니스 로직
 		int result = new CaService().insertCa(c);
 		// 4. 결과처리
@@ -48,7 +49,7 @@ public class CaWriteServlet extends HttpServlet {
 			request.setAttribute("loc", "/employeeMain");
 		}else {
 			request.setAttribute("msg", "Ca 등록 실패");
-			request.setAttribute("loc", "/caWriteFrm?="+c.getCaAn());
+			request.setAttribute("loc", "/caWriteFrm?incaNo="+c.getCaAn());
 		}
 		rd.forward(request, response);
 	}

@@ -97,8 +97,8 @@ public class CaDao {
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, ca.getCaAn());
-			pstmt.setString(2, ca.getCaWriter());
-			pstmt.setString(3, ca.getCaTitle());
+			pstmt.setString(2, ca.getCaTitle());
+			pstmt.setString(3, ca.getCaWriter());
 			pstmt.setString(4, ca.getCaContent());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

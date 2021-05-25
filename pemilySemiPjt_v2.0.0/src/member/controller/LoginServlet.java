@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 					}else {
 						HttpSession session = request.getSession();
 						session.setAttribute("m", m);
-						request.setAttribute("msg", "로그인 성공");
+						request.setAttribute("msg", m.getMemberName());
 					}
 				}else {
 					//로그인 실패한 경우
