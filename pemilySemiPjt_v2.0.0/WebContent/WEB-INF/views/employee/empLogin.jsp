@@ -166,6 +166,7 @@
 		});
 		$('#fail1').click(function(){
 			$('.modalMH').css('display','none');
+			$(this).hide();
 		});
 	</script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
