@@ -48,6 +48,45 @@
 	    background-color:#9cd0ee;
 	    color:#fff;
 	}
+	.modalMH{
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,0.4);
+            position:fixed;
+            top:0;
+            left:0;
+            display:none;
+            justify-content:center;
+            align-items:center;
+        }
+        .modalCommentWrap{
+            width:200px;
+            height:150px;
+            background-color:#fff;
+            border-radius:20px;
+            text-align:center;
+        }
+        .modalCommentBox{
+            width:100%;
+            height:110px;
+            box-sizing: border-box;
+            padding-top:50px;
+        }
+        .modalBtn{
+        	display:none;
+            width:50px;
+            height:30px;
+            outline:none;
+            border:1px solid #555;
+            background-color:#eaee18;
+            border-radius:5px;
+            transition-duration: 0.2s;
+            cursor: pointer;
+        }
+        .modalBtn:hover{
+            background-color:#555;
+            color:#eaee18;
+        }
 </style>
 </head>
 <body>
@@ -61,49 +100,74 @@
         </div>
         <button type="button" id="empLoginBtn" class="designFrm">로그인</button>
     </form>
-		<script>
-			$('#empLoginBtn').click(function(){
-				if(idCheck()){
-					return alert('아이디를 입력해주세요');
-				}else if(pwCheck()){
-					return alert('비밀번호를 입력해주세요');
-				}
-				
-				const empId = $('#empId').val();
-				const empPw = $('#empPw').val();
-				$.ajax({
-					url : "/empLoginChk",
-					type : "post",
-					data : {empId : empId, empPw : empPw},
-					success : function(data){
-						if(data != null){
-							//modal or alert
-							alert(data.empName+'님 어서오세요');
-							location.href="/noticeEmpList?reqPage=1&noticeCom=1";
-						}else{
-							//modal or alert
-							alert('아이디 또는 비밀번호를 확인해주세요');
-							$('#empId').val('');
-							$('#empPw').val('');
-						}
+    <div class="modalMH">
+        <div class="modalCommentWrap">
+            <div class="modalCommentBox">
+            </div>
+            <button id="success1" class="modalBtn">확인</button>
+            <button id="fail1" class="modalBtn">닫기</button>
+        </div>
+    </div>
+	<script>
+		$('#empLoginBtn').click(function(){
+			if(idCheck()){
+				$('#fail1').show();
+				$('.modalCommentBox').html('아이디를 입력해주세요');
+				openModal1();
+				return;
+			}else if(pwCheck()){
+				$('#fail1').show();
+				$('.modalCommentBox').html('비밀번호를 입력해주세요');
+				openModal1();
+				return;
+			}
+			const empPw = $('#empPw').val();
+			const empId = $('#empId').val();
+			$.ajax({
+				url : "/empLoginChk",
+				type : "post",
+				data : {empId : empId, empPw : empPw},
+				success : function(data){
+					if(data != null){
+						//modal or alert
+						$('.modalCommentBox').html(data.empName+' 님 어서오세요!');
+						$('#success1').show();
+						openModal1();
+					}else{
+						//modal or alert
+						$('.modalCommentBox').html('아이디 또는 비밀번호를 확인해주세요');
+						$('#fail1').show();
+						openModal1();
+						$('#empId').val('');
+						$('#empPw').val('');
 					}
-				});
+				}
 			});
-			function idCheck(){
-				const empId = $('#empId').val();
-				if(empId == ''){
-					return true; 
-				}
-				return false;
+		});
+		function idCheck(){
+			const empId = $('#empId').val();
+			if(empId == ''){
+				return true; 
 			}
-			function pwCheck(){
-				const empPw = $('#empPw').val();				
-				if(empPw == ''){
-					return true; 
-				}
-				return false;
+			return false;
+		}
+		function pwCheck(){
+			const empPw = $('#empPw').val();				
+			if(empPw == ''){
+				return true; 
 			}
-		</script>
+			return false;
+		}
+		function openModal1(){
+			$('.modalMH').css('display','flex');
+		}
+		$('#success1').click(function(){
+			location.href="/noticeEmpList?reqPage=1&noticeCom=1";
+		});
+		$('#fail1').click(function(){
+			$('.modalMH').css('display','none');
+		});
+	</script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>
