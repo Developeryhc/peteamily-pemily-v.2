@@ -193,12 +193,15 @@ $(".login-li").mouseout(function(){
 $(".test-li").click(function(){
 	var index = $(".test-li").index(this);
 	if(index == 0){
-		location.href="loginFrm";
+		<%if(m==null && e==null){%>
+		location.href="loginFrm";		
+		<%}else{%>
+		window.open('https://open.kakao.com/o/s7Krolfd','_blink','width=1000px,height=600px,top=100px,left=200px');
+		<%}%>
 	}else if(index == 1){
 		location.href="joinFrm";
 	}else if(index == 2){
 		window.open('https://open.kakao.com/o/s7Krolfd','_blink','width=1000px,height=600px,top=100px,left=200px');
-		location.href="#";
 	}
 });
 $(".login-li").click(function(){
@@ -210,7 +213,6 @@ $(".login-li").click(function(){
 	}else if(index == 3){
 		location.href="#";
 	}else if(index == 4){
-		window.open('https://open.kakao.com/o/s7Krolfd','_blink','width=1000px,height=600px,top=100px,left=200px');
 		location.href="#";
 	}
 });
