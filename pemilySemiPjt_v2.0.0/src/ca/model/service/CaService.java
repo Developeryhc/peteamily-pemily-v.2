@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import ca.model.dao.CaDao;
 import ca.model.vo.Ca;
 import common.JDBCTemplate;
+import inca.model.dao.IncaDao;
 
 public class CaService {
 	public ArrayList<Ca> CaAllSelect() {
@@ -33,16 +34,17 @@ public class CaService {
 		Connection conn = JDBCTemplate.getConnection();
 		int result = new CaDao().insertCa(conn, ca);
 		if(result > 0) {
-			JDBCTemplate.commit(conn);
+			result = new IncaDao().updateInca(conn, ca.getCaAn());
+			if(result >0) {
+				JDBCTemplate.commit(conn);
+			}else {
+				JDBCTemplate.rollback(conn);
+			}
 		}else {
 			JDBCTemplate.rollback(conn);
 		}
 		JDBCTemplate.close(conn);
 		return result;
 	}
-	
-	
-
-
 
 }
