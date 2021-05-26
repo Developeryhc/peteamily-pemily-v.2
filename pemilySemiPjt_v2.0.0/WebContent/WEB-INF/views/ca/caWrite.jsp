@@ -68,7 +68,7 @@
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="container">
-		<input type="hidden" name="empId" value="<%=e.getEmpId() %>">
+		<input type="hidden" name="empId" value="<%=m.getEmpId() %>">
 		<h1 style="text-align:center; font-family:'Do Hyeon', sans-serif;">반려동물 등록</h1>	
 		<form action="/caWrite" method="post">
 			<table class="form-wrap">

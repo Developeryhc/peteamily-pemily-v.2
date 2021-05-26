@@ -82,7 +82,7 @@ public class IncaDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Inca> list = new ArrayList<Inca>();
-		String query = "select * from (select rownum as sort, inca.* from(select * from inca WHERE NOT inca_condition = 4 AND NOT inca_condition = 5 order by inca_no desc) inca) where sort between ? and ?";
+		String query = "select * from (select rownum as sort, inca.* from(select * from inca WHERE NOT inca_condition = 4 order by inca_no desc) inca) where sort between ? and ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, start);
@@ -241,7 +241,7 @@ public class IncaDao {
 	public int updateInca(Connection conn, int caAn) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "UPDATE inca SET inca_condition = 4 WHERE inca_no = ?";
+		String query = "UPDATE inca SET inca_condition = 3 WHERE inca_no = ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, caAn);
