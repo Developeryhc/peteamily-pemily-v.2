@@ -47,8 +47,8 @@ public class EmpLoginChkServlet extends HttpServlet {
 		if(emp != null) {
 			HttpSession session =  request.getSession();
 			session.setAttribute("e", emp);
-			new Gson().toJson(emp,response.getWriter());
 		}
+		new Gson().toJson(emp,response.getWriter());
 	}
 
 	/**

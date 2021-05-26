@@ -63,7 +63,12 @@
     </form>
 		<script>
 			$('#empLoginBtn').click(function(){
-				 console.log('test');
+				if(idCheck()){
+					return alert('아이디를 입력해주세요');
+				}else if(pwCheck()){
+					return alert('비밀번호를 입력해주세요');
+				}
+				
 				const empId = $('#empId').val();
 				const empPw = $('#empPw').val();
 				$.ajax({
@@ -77,6 +82,7 @@
 							location.href="/noticeEmpList?reqPage=1&noticeCom=1";
 						}else{
 							//modal or alert
+							alert('아이디 또는 비밀번호를 확인해주세요');
 							$('#empId').val('');
 							$('#empPw').val('');
 						}
@@ -86,11 +92,16 @@
 			function idCheck(){
 				const empId = $('#empId').val();
 				if(empId == ''){
-					return
+					return true; 
 				}
+				return false;
 			}
 			function pwCheck(){
 				const empPw = $('#empPw').val();				
+				if(empPw == ''){
+					return true; 
+				}
+				return false;
 			}
 		</script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
