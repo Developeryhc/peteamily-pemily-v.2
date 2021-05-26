@@ -206,13 +206,15 @@ public class IncaDao {
 	public int incaModify(Connection conn, Inca inca, int incaNo) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "update inca set inca_price=?, inca_condition=?, inca_store=? where inca_no=?";
+		String query = "update inca set inca_price=?, inca_condition=?, inca_store=?, inca_pic=?, inca_path=? where inca_no=?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, inca.getIncaPrice());
 			pstmt.setInt(2, inca.getIncaCondition());
 			pstmt.setInt(3, inca.getIncaStore());
-			pstmt.setInt(4, incaNo);
+			pstmt.setString(4, inca.getIncaPic());
+			pstmt.setString(5, inca.getIncaPath());
+			pstmt.setInt(6, incaNo);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -51,7 +51,7 @@ public class IncaWriteServlet extends HttpServlet {
 		// a) 파일 업로드 경로 지정
 		String root = getServletContext().getRealPath("/"); // Web 폴더 경로 가져오는 코드 (workspace)
 		String saveDirectory = root+"upload/inca";		// 파일 저장 경로 지정
-		System.out.println("파일 저장 로 : "+saveDirectory);
+		System.out.println("파일 저장 경로 : "+saveDirectory);
 		// b) 업로드 파일의 최대크기 지정 (일반적으로 웹은 10Mb 정도 사용)
 		int maxSize = 10*1024*1024;
 		// c) request → MultipartRequest 객체로 변환 (파일은 다른 형태라서 그럼)

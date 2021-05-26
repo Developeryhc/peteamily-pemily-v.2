@@ -133,10 +133,15 @@ function incaModifyAjax(hiddenModiChk){
 	const incaPrice	= $('#incaPrice').val();
 	const incaCondition = $('#incaCondition').val();
 	const incaStore = $('#incaStore').val();
+	const form = $('#incaModifyFrm')[0];
+	const formData = new FormData(form);
 	$.ajax({
 		url : "/incaModifyFrm",
-		data : {incaNo : incaNo, incaPrice : incaPrice, incaCondition : incaCondition, incaStore : incaStore},
+		data : formData,
 		type : "post",
+		enctype : "multipart/form-data",
+		processData: false,    
+        contentType: false, 
 		success : function(data){
 			const text = data>0?"수정 완료!" : "다시 시도해주세요ㅠ";
 			$('.confirmChk').find('.comment-box').html(text);

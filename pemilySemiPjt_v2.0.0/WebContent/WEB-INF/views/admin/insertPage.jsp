@@ -238,6 +238,11 @@
         		</div>
         	</div>
         </form>
+        <script>
+        $('#incaPic').change(function(){
+    		console.log($(this).val());
+    	});
+        </script>
         <div class="wrap-2">
         </div>
     </section>

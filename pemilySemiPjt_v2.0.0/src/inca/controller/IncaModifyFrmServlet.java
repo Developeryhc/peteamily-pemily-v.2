@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import inca.model.service.IncaService;
 import inca.model.vo.Inca;
 
@@ -37,15 +42,44 @@ public class IncaModifyFrmServlet extends HttpServlet {
 		//1.
 		request.setCharacterEncoding("utf-8");
 		//2.
-		int incaNo = Integer.parseInt(request.getParameter("incaNo"));
-		int incaPrice = Integer.parseInt(request.getParameter("incaPrice"));
-		int incaCondition = Integer.parseInt(request.getParameter("incaCondition"));
-		int incaStore = Integer.parseInt(request.getParameter("incaStore"));
+		//파일 업로드 > enctype = multipart/form-data , post
+		if(!ServletFileUpload.isMultipartContent(request)) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+			request.setAttribute("msg", "Modify Error[enctype]");
+			request.setAttribute("loc", "/caList?reqPage=1");
+			rd.forward(request, response);
+			return;
+		}
+		System.out.println("test");
+		//파일 크기 제한, 경로 설정
+		String root = getServletContext().getRealPath("/");
+		String saveDirectory = root+"upload/inca/";
+		int maxSize = 10 * 1024 * 1024;
+		//파일 업로드로 요청한 경우 MultipartRequest로 data를 꺼내온다.
+		MultipartRequest mRequest = new MultipartRequest(request, saveDirectory,maxSize,"UTF-8",new DefaultFileRenamePolicy());
+		int incaNo = Integer.parseInt(mRequest.getParameter("incaNo"));
+		int incaPrice = Integer.parseInt(mRequest.getParameter("incaPrice"));
+		int incaCondition = Integer.parseInt(mRequest.getParameter("incaCondition"));
+		int incaStore = Integer.parseInt(mRequest.getParameter("incaStore"));
+		String incaPic = mRequest.getOriginalFileName("incaPic");
+		String incaPath = mRequest.getFilesystemName("incaPic");
+		String oldIncaPic = mRequest.getParameter("oldIncaPic");
+		String oldIncaPath = mRequest.getParameter("oldIncaPath");
+		System.out.println(incaPic);
+		System.out.println(incaPath);
+		System.out.println(oldIncaPic);
+		System.out.println(oldIncaPath);
+		if(incaPic == null || incaPath == null) {
+			incaPic = oldIncaPic;
+			incaPath = oldIncaPath;
+		}
 		//3.
 		Inca inca = new Inca();
 		inca.setIncaPrice(incaPrice);
 		inca.setIncaCondition(incaCondition);
 		inca.setIncaStore(incaStore);
+		inca.setIncaPic(incaPic);
+		inca.setIncaPath(incaPath);
 		int result = new IncaService().incaModify(inca,incaNo);
 		//4.
 		PrintWriter out = response.getWriter();
