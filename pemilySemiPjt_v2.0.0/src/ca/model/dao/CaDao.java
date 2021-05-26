@@ -72,7 +72,7 @@ public class CaDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		int totalCount = 0;
-		String query = "SELECT COUNT(*) CNT FROM (SELECT * FROM INCA JOIN CA ON INCA_NO = CA.CA_AN WHERE INCA_AN = ? AND NOT INCA_CONDITION = 0)";
+		String query = "SELECT COUNT(*) CNT FROM (SELECT * FROM INCA JOIN CA ON INCA_NO = CA.CA_AN WHERE INCA_AN = ? AND INCA_CONDITION BETWEEN 1 AND 3)";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, incaAn);

@@ -174,7 +174,7 @@ $(function(){
 	<%if(m==null){%>
 	$(".test").css("height", "250px");
 	<%}else{%>
-	$(".test").css("height", "390px")
+	$(".test").css("height", "390px");
 	<%}%>
 });
 $('.go-top').click(function(){
