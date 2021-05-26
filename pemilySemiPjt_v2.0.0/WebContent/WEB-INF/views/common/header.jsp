@@ -1,3 +1,4 @@
+<%@page import="member.model.vo.MemberList"%>
 <%@page import="employee.model.vo.Employee"%>
 <%@page import="javax.mail.Session"%>
 <%@page import="org.apache.catalina.SessionListener"%>
@@ -8,11 +9,12 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	Member m = null;
-	Employee e = null;
+	MemberList m = null;
 	if((Member)session.getAttribute("m") == null){
-		e = (Employee)session.getAttribute("e");		
+		m = (Employee)m;
+		m = (Employee)session.getAttribute("e");
 	}else{
+		m = (Member)m;
 		m = (Member)session.getAttribute("m");		
 	}
 %>
@@ -145,14 +147,14 @@
     <div class="testWrap">
 		<div class="test">
 			<ul>
-				<%if(m == null && e == null){ %>
+				<%if(m == null){ %>
 				<li class="test-li"><img src="/img/login.png"></li>
 				<li class="test-li"><img src="/img/join.png"></li>
 				<%}else{ %>
 					<li class="login-li">
 						<p>
-							<%if(m == null){ %>
-							<%=e.getEmpName() %>
+							<%if(m.getMemberName() == null){ %>
+							<%=m.getEmpName() %>
 							<%}else{ %>
 							<%=m.getMemberName() %>
 							<%} %>
@@ -169,7 +171,7 @@
 	</div>
 <script>
 $(function(){
-	<%if(m==null && e==null){%>
+	<%if(m==null){%>
 	$(".test").css("height", "250px");
 	<%}else{%>
 	$(".test").css("height", "390px")
@@ -193,7 +195,7 @@ $(".login-li").mouseout(function(){
 $(".test-li").click(function(){
 	var index = $(".test-li").index(this);
 	if(index == 0){
-		<%if(m==null && e==null){%>
+		<%if(m==null){%>
 		location.href="loginFrm";		
 		<%}else{%>
 		window.open('https://open.kakao.com/o/s7Krolfd','_blink','width=1000px,height=600px,top=100px,left=200px');
