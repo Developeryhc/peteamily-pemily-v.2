@@ -132,7 +132,7 @@
                 <li class="menu"><a href="/buyProduct">Goods</a></li>
                 <li><a href="/"><img src="img/logo.JPG.jpg" class="logo" style="width:200px;"></a></li>
                 <li class="menu"><a href="/community?reqPage=1&noticeCom=2">Community</a></li>
-                <li class="menu"><a href="/view/contactMain.jsp">Contact</a></li>
+                <li class="menu"><a href="/contactMain">Contact</a></li>
             </ul>
         </div>
         <c:choose>

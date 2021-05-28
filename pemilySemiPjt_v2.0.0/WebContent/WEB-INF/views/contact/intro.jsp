@@ -81,6 +81,7 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<%-- <%@include file="/WEB-INF/views/contact/contactMain.jsp"%> --%>
 	<div class="container">
 		<div class="top">
 			<h1>회사소개</h1>
@@ -183,5 +184,6 @@ Pemily의 모토이자 목표인 4가지 약속을 항상
 			</div>
 		</div><br><br>
 	</div>
+	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 </body>
 </html>
