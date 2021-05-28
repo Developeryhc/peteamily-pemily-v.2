@@ -5,6 +5,9 @@
 <script type="text/javascript" src="/js/employee/insertPage.js"></script>
 <!-- 직원 페이지 js -->
 <script type="text/javascript" src="/js/employee/employeeLists.js"></script>
+<!-- Black Hans Sans 폰트 -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <!-- 직원 페이지 -->
 <link rel="stylesheet" href="/css/employee/empPage.css" type="text/css">
 <!-- 반려동물 목록 -->

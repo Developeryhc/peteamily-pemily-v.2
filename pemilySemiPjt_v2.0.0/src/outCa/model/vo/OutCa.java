@@ -11,12 +11,15 @@ public class OutCa {
 	private String outCaCon;
 	private String outCaPath;
 	private int sort;
+	private int incaAn;
+	private String incaName;
 	public OutCa() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public OutCa(int outCaNo, int outCaAn, String outCaMi, int outCaPrice, int outCaStore,
-			String outCaDate, String outCaEmp, String outCaCon, String outCaPath, int sort) {
+	
+	public OutCa(int outCaNo, int outCaAn, String outCaMi, int outCaPrice, int outCaStore, String outCaDate,
+			String outCaEmp, String outCaCon, String outCaPath, int sort, int incaAn, String incaName) {
 		super();
 		this.outCaNo = outCaNo;
 		this.outCaAn = outCaAn;
@@ -28,7 +31,10 @@ public class OutCa {
 		this.outCaCon = outCaCon;
 		this.outCaPath = outCaPath;
 		this.sort = sort;
+		this.incaAn = incaAn;
+		this.incaName = incaName;
 	}
+
 	public int getOutCaNo() {
 		return outCaNo;
 	}
@@ -88,6 +94,22 @@ public class OutCa {
 	}
 	public void setSort(int sort) {
 		this.sort = sort;
+	}
+
+	public int getIncaAn() {
+		return incaAn;
+	}
+
+	public void setIncaAn(int incaAn) {
+		this.incaAn = incaAn;
+	}
+
+	public String getIncaName() {
+		return incaName;
+	}
+
+	public void setIncaName(String incaName) {
+		this.incaName = incaName;
 	}
 	
 }

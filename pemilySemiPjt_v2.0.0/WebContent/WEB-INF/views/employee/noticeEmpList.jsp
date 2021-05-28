@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
      pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
      <%
     	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
      	String pageNavi = (String)request.getAttribute("pageNavi");
@@ -27,26 +28,32 @@
  		<table id="notice-table" class="printList">
              <thead>
                  <tr>
-                 	<%-- 
-                 	<%if(emp != null && emp.getEmpGrade == 1){ %>
-                     <th>제목</th><th>작성자</th><th>작성일</th>
-                 	<%}else{ %>
-                     <th>제목</th><th>작성자</th><th>작성일</th>
-                 	<%} %>
-                 	--%>
-                     <th>제목</th><th>작성자</th><th>작성일</th><th colspan="2"></th>
+                 <c:choose>
+                 	<c:when test="${not empty sessionScope.e && sessionScope.e.empGrade <= 3 }">
+                     	<th>제목</th><th>작성자</th><th>작성일</th><th colspan="2"></th>
+                 	</c:when>
+                 	<c:otherwise>
+	                     <th>제목</th><th>작성자</th><th>작성일</th>
+                 	</c:otherwise>
+                 </c:choose>
                  </tr>
              </thead>
              <tbody>
-             	<%for(Notice n : list){ %>
-             	<%--if(emp != null && emp.getGrade() == 1){ --%>
-             		<%-- 여기가 수정/삭제 버튼이 추가된 tr자리 --%>
-             		<%--<td><a href="/noticeEmpWriteFrm?noticeNo=<%=n.getNoticeNo()%>"><%=n.getNoticeTitle() %></a></td><td><%=n.getNoticeWriter() %></td><td><%=n.getNoticeDate() %></td> --%>
-             	<%--} --%>
-             	<tr>
-             		<td><a href="/noticeEmpView?noticeNo=<%=n.getNoticeNo()%>"><%=n.getNoticeTitle() %></a></td><td><%=n.getNoticeWriter() %></td><td><%=n.getNoticeDate() %></td><td><button type="button" value="<%=n.getNoticeNo() %>" class="mdBtn modifyBtn">수정</button></td><td><button type="button" value="<%=n.getNoticeNo() %>" class="mdBtn deleteBtn">삭제</button></td>
-             	</tr>
-             	<%} %>
+           	<c:forEach items="${list }" var="n" varStatus="i">
+           		<c:choose>
+	           		<c:when test="${i.count % 2 == 0 }">
+			           	<tr class="stripeTr1">
+		           	</c:when>
+		           	<c:otherwise>
+			           	<tr class="stripeTr2">
+		           	</c:otherwise>
+	           	</c:choose>
+		                   	<td><a href="/noticeEmpView?noticeNo=${n.noticeNo }">${n.noticeTitle }</a></td><td>${n.noticeWriter }</td><td>${n.noticeDate }</td>
+		               	<c:if test="${not empty sessionScope.e && sessionScope.e.empGrade <= 3 }">
+		                   	<td><button type="button" value="${n.noticeNo }" class="mdBtn modifyBtn">수정</button></td><td><button type="button" value="${n.noticeNo }" class="mdBtn deleteBtn">삭제</button></td>
+		               	</c:if>
+			           	</tr>
+           	</c:forEach>
              </tbody>
          </table>
          <%=pageNavi %>

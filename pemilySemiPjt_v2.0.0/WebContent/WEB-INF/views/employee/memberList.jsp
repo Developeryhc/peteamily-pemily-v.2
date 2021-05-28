@@ -32,19 +32,23 @@
 	        </thead>
 	        <tbody>
 	        	<%for(Member ml : list){ %>
-	            <tr>
-	                <td><%=ml.getSort() %></td><td><%=ml.getMemberId() %></td><td><%=ml.getMemberEmail() %></td><td><%=ml.getMemberPhone() %></td><td><%=ml.getMemberEnter() %></td>
-	                <td>
-	                <%
-	                	String an = ml.getMemberAn() == 0 ? "입양 불가" : "입양 가능";
-	                %>
-	                	<select id="caCheck">
-	                		<option selected><%=an %></option>
-	                		<option value="0">입양 불가</option>
-	                		<option value="1">입양 가능</option>
-	                	</select>
-	                </td>
-	            </tr>
+		        	<%if(ml.getSort()%2==0){ %>
+	                <tr class="stripeTr1">
+	            	<%}else{ %>
+	                <tr class="stripeTr2">
+	            	<%} %>
+		                <td><%=ml.getSort() %></td><td><%=ml.getMemberId() %></td><td><%=ml.getMemberEmail() %></td><td><%=ml.getMemberPhone() %></td><td><%=ml.getMemberEnter() %></td>
+		                <td>
+		                <%
+		                	String an = ml.getMemberAn() == 0 ? "입양 불가" : "입양 가능";
+		                %>
+		                	<select id="caCheck">
+		                		<option selected><%=an %></option>
+		                		<option value="0">입양 불가</option>
+		                		<option value="1">입양 가능</option>
+		                	</select>
+		                </td>
+		            </tr>
 	        	<%} %>
 	        </tbody>
 	    </table>

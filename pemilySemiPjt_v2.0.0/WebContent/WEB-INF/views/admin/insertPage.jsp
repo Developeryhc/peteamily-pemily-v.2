@@ -116,49 +116,50 @@
 					            <!-- 어류 -->
 					            <select id="pisces" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="4">어류1</option>
-					            	<option value="4">어류2</option>
-					            	<option value="4">어류3</option>
-					            	<option value="4">어류4</option>
-					            	<option value="4">어류5</option>
-					            	<option value="4">어류6</option>
-					            	<option value="4">어류7</option>
+					            	<option value="4">구피</option>
+					            	<option value="4">제브라 다니오</option>
+					            	<option value="4">베타</option>
+					            	<option value="4">네온 테트라</option>
+					            	<option value="4">금붕어</option>
+					            	<option value="4">플래티</option>
+					            	<option value="4">다이아몬드 엔젤</option>
 					            </select>
 					            <!-- 절지류 -->
 					            <select id="arthropod" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="8">절지류1</option>
-					            	<option value="8">절지류2</option>
-					            	<option value="8">절지류3</option>
-					            	<option value="8">절지류4</option>
-					            	<option value="8">절지류5</option>
+					            	<option value="8">타란튤라</option>
+					            	<option value="8">전갈</option>
+					            	<option value="8">개미</option>
+					            	<option value="8">지네</option>
 					            </select>
 					            <!-- 설치류 -->
 					            <select id="rodent" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="6">설치류1</option>
-					            	<option value="6">설치류2</option>
-					            	<option value="6">설치류3</option>
-					            	<option value="6">설치류4</option>
-					            	<option value="6">설치류5</option>
-					            	<option value="6">설치류6</option>
+					            	<option value="6">햄스터</option>
+					            	<option value="6">친칠라</option>
+					            	<option value="6">기니피그</option>
+					            	<option value="6">게르빌루스 쥐</option>
 					            </select>
 					            <!-- 도마뱀 -->
 					            <select id="lizard" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="5">종1</option>
-					            	<option value="5">종2</option>
-					            	<option value="5">종3</option>
-					            	<option value="5">종4</option>		            	
+					            	<option value="5">레오파드 게코</option>
+					            	<option value="5">크레스티드 게코</option>		            	
+					            	<option value="5">토케이</option>		            	
+					            	<option value="5">비어디 드래곤</option>
+					            	<option value="5">블루턴 스킨크</option>
+					            	<option value="5">레드아이 아머드 스킨크</option>
+					            	<option value="5">아놀</option>		            	
 					            </select>
 					            <!-- 뱀 -->
 					            <select id="snake" class="kinds">
 					            	<option value="0" selected>분류</option>           	
-				            		<option value="7">비단뱀</option>
-				            		<option value="7">구렁이</option>
+				            		<option value="7">방울뱀</option>
 				            		<option value="7">아나콘다</option>
 				            		<option value="7">살모사</option>
 				            		<option value="7">블랙맘바</option>
+				            		<option value="7">제이슨맘바</option>
+				            		<option value="7">그린맘바</option>
 					            </select>
 				            </div>
 			        	</div>
@@ -179,13 +180,9 @@
 				            <!-- 동물 지점 select -->
 				            <select id="incaStoreSel">
 				            	<option value="0" selected>지점</option>
-				            	<option value="1">당산</option>
-				            	<option value="2">강남 1호점</option>
-				            	<option value="3">강남 2호점</option>
-				            	<option value="4">강남 3호점</option>
-				            	<option value="5">종로</option>
-				            	<option value="6">이태원</option>
-				            	<option value="7">울산</option>
+				            	<option value="1">본사</option>
+				            	<option value="2">강남 지점</option>
+				            	<option value="3">부산 지점</option>
 				            </select>
 			        	</div>
 			        	

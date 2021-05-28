@@ -1,6 +1,7 @@
 <%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%
     	Member m1 = (Member)session.getAttribute("member");
     %>
@@ -12,9 +13,7 @@
 	    <li class="empMenu"><a href="/caList?reqPage=1">동물 분양(전)</a></li>
 	    <li class="empMenu"><a href="javascript:void(0)">동물 분양(중)</a></li>
 	    <!-- 밑의 메뉴는 관리자 계정만 가능 -->
-	    <%if(m1 != null && m1.getMemberGrade() == 1){ %>
-	    <li class="empMenu"><a href="/staffAddFrm">노예 등록</a>
-	    <%} %>
+	    <c:if test="${not empty sessionScope.e && sessionScope.e.empGrade <= 3 }">
 	    <li class="empMenu">
 	    	<a href="javascript:void(0);">분양/판매</a>
 	    	<ul class="subMenu1">
@@ -30,5 +29,7 @@
 	    	</ul>
 	    </li>
 	    <li class="empMenu"><a href="/insertPage">등록하기</a></li>
+	    <li class="empMenu"><a href="/staffAddFrm">노예 등록</a></li>
+	    </c:if>
     </ul>
 </nav>

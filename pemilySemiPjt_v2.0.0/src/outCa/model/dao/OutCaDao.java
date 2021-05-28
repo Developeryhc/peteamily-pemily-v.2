@@ -13,11 +13,11 @@ import outCa.model.vo.OutCaTable;
 
 public class OutCaDao {
 
-	public ArrayList<OutCa> selectAllInPro(Connection conn, int start, int end) {
+	public ArrayList<OutCa> selectAllOutCa(Connection conn, int start, int end) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<OutCa> list = new ArrayList<OutCa>();
-		String query = "select * from(select rownum as sort, outca.* from(select * from outca order by outca_no desc) outca) where sort between ? and ?";
+		String query = "select * from (select rownum as sort, oc.* from(select * from (select * from outca join inca on outca_an = inca_no)order by outca_no)oc) where sort between ? and ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, start);
@@ -35,6 +35,8 @@ public class OutCaDao {
 				oca.setOutCaPrice(rset.getInt("outCa_price"));
 				oca.setOutCaStore(rset.getInt("outCa_store"));
 				oca.setSort(rset.getInt("sort"));
+				oca.setIncaAn(rset.getInt("inca_an"));
+				oca.setIncaName(rset.getString("inca_name"));
 				list.add(oca);
 			}
 		} catch (SQLException e) {

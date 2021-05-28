@@ -19,7 +19,7 @@ public class OutCaService {
 		int printNavi = 10;						//보여줄 네비 길이
 		int end = printList * reqPage;			//list 마지막 값
 		int start = end - printList + reqPage;	//list 시작 값
-		ArrayList<OutCa> list = new OutCaDao().selectAllInPro(conn,start,end);		//게시글 전부
+		ArrayList<OutCa> list = new OutCaDao().selectAllOutCa(conn,start,end);		//게시글 전부
 		int totalListCount = new OutCaDao().totalListCount(conn);		//총 게시글 수
 		int aReqPage = ((reqPage-1) / printNavi) * printNavi+1;
 		//네비게이션 마지막 값 설정

@@ -1,6 +1,7 @@
 <%@page import="notice.model.vo.NoticeWriteInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%
     NoticeWriteInfo nwi = (NoticeWriteInfo)request.getAttribute("nwi");
     %>
@@ -101,7 +102,13 @@
 			<div class="noticeViewContent">
 				<%=nwi.getNoticeContent() %>
 			</div>
-			<div class="mdBtn-wrap"><button type="button" class="mdBtn goBackBtn">뒤로</button><button type="button" class="mdBtn modifyBtn" value="<%=nwi.getNoticeNo() %>">수정</button><button type="button" class="mdBtn deleteBtn" value="<%=nwi.getNoticeNo() %>">삭제</button></div>
+			<div class="mdBtn-wrap">
+				<button type="button" class="mdBtn goBackBtn">뒤로</button>
+				<c:if test="${not empty sessionScope.e && sessionScope.e.empId.equals(nwi.noticeWriter) }">
+					<button type="button" class="mdBtn modifyBtn" value="<%=nwi.getNoticeNo() %>">수정</button>
+					<button type="button" class="mdBtn deleteBtn" value="<%=nwi.getNoticeNo() %>">삭제</button>
+				</c:if>
+			</div>
 		</div>
 		<%-- 
 		<div class="comment-wrap">

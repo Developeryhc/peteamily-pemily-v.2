@@ -30,7 +30,7 @@
 }
 /* 등록상태 */
 #com_animals>tbody td:nth-child(8){
-	width:10%;    
+	width:auto;    
 }
 
 

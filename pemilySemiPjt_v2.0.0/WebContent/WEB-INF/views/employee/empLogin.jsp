@@ -48,6 +48,10 @@
 	    background-color:#9cd0ee;
 	    color:#fff;
 	}
+	#empLoginBtn:focus{
+	    background-color:#9cd0ee;
+	    color:#fff;
+	}
 	.modalMH{
             width:100%;
             height:100%;
@@ -87,6 +91,19 @@
             background-color:#555;
             color:#eaee18;
         }
+        .searchIdPw{
+        	text-decoration:none;
+        	color:#555;
+        	outline:none;
+        }
+        .searchIdPw:hover{
+        	text-decoration:underline;
+        	color:#DB7093;
+        }
+        .searchIdPw:focus{
+        	text-decoration:underline;
+        	color:#DB7093;
+        }
 </style>
 </head>
 <body>
@@ -96,7 +113,7 @@
         <input type="text" class="designFrm" id="empId" name="empId" placeholder="아이디" autocomplete="off">
         <input type="password" class="designFrm" id="empPw" name="empPw" placeholder="비밀번호">
         <div class="designFrm">
-            <a href="javascript:void(0)">아이디 / 비밀번호 찾기</a>
+            <a href="javascript:void(0)" class="searchIdPw">아이디 / 비밀번호 찾기</a>
         </div>
         <button type="button" id="empLoginBtn" class="designFrm">로그인</button>
     </form>

@@ -18,6 +18,10 @@ section > * {
 	margin:0 auto;
 	margin-top:50px;
 	margin-bottom:50px;
+	font-family: 'Jua', sans-serif;
+}
+.forms h2{
+	font-family: 'Jua', sans-serif;
 }
 .mdBtn{
 	width:50px;
@@ -28,6 +32,22 @@ section > * {
 	border:none;
 	cursor:pointer;
 	border-radius:5px;
+}
+/* 분양 등록가능 버튼 */
+.poBtn{
+	background-color:lightgreen;
+	transition-duration:0.2s;
+}
+.poBtn:hover{
+	background-color:#fff;
+	color:green;
+	border:1px solid green;
+}
+/* 분양 등록불가 버튼 */
+.impoBtn{
+	background-color:red;
+	color:#fff;
+	cursor:not-allowed;
 }
 /* 수정 완료버튼 */
 .completeBtn{
@@ -112,14 +132,12 @@ section > * {
 	border-collapse: collapse;
 	border-top:3px solid black;
 	border-bottom:3px solid black;
+	font-size:0.8rem;
 }
 .printList>thead tr{
     height:50px;
     border-bottom:1px solid black;
     background-color:rgba(174, 215, 232, 0.73);
-}
-.printList>tbody>tr:hover>td{
-	background-color:#ddd;
 }
 .printList td:nth-last-child(2){
 	width:50px;	
@@ -133,6 +151,12 @@ section > * {
 }
 .printList>tbody>tr{
     border-bottom:1px solid #ddd;
+}
+.stripeTr1{
+	background-color:#FFFAFA;
+}
+.stripeTr2{
+	background-color:#F8F8FF;
 }
 .printList td>a{
 	display:block;

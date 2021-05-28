@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%
     	ArrayList<InPro> list = (ArrayList<InPro>)request.getAttribute("list");
         String navigation = (String)request.getAttribute("navigation");
@@ -35,7 +36,14 @@
 	   	<table id="inProductList" class="printList">
 	       <thead>
 	           <tr>
-	               <th>No</th><th>분류</th><th>상품명</th><th>판매가</th><th>수량</th><th colspan="2"></th>
+	           <c:choose>
+                 	<c:when test="${not empty sessionScope.e && sessionScope.e.empGrade <= 3 }">
+                     	<th>No</th><th>분류</th><th>상품명</th><th>판매가</th><th>수량</th><th colspan="2"></th>
+                 	</c:when>
+                 	<c:otherwise>
+	                     <th>No</th><th>분류</th><th>상품명</th><th>판매가</th><th>수량</th>
+                 	</c:otherwise>
+                 </c:choose>
 	           </tr>
 	       </thead>
 	       <tbody>
@@ -43,10 +51,14 @@
 	           	for(InPro inPro : list){
 	           		 String proKinds = inPro.getInProSn()==10?"Snack":(inPro.getInProSn()==20?"Toy":(inPro.getInProSn()==30?"Clothes":"기타"));
 	           %>
-	           <tr>
+	           <%if(inPro.getSort()%2==0){ %>
+	           <tr class="stripeTr1">
+	           <%}else{ %>
+	           <tr class="stripeTr2">
+	           <%} %>
 	           	   <td><%=inPro.getSort() %></td><td><%=proKinds %></td><td><%=inPro.getInProName() %></td>
 	           	   <td>
-	           	   		<span><%=inPro.getInProPrice() %></span><span class="won">원</span>
+	           	   		<span class="priceFormat"><%=inPro.getInProPrice() %></span><span class="won">원</span>
 	           	   		<input type="text" id="inProPriceFake" name="inProPriceFake" class="hides inProInputs" value="<%=inPro.getInProPrice() %>">
 	           	   		<input type="hidden" id="inProPrice" name="inProPrice" value="<%=inPro.getInProPrice() %>">
 	           	   </td>
@@ -54,6 +66,7 @@
 	           	   		<span><%=inPro.getInProAmount() %></span><span class="won">개</span>
 	           	   		<input type="text" id="inProAmount" name="inProAmount" class="hides inProInputs" value="<%=inPro.getInProAmount() %>">
 	           	   </td>
+          	   		<c:if test="${not empty sessionScope.e && sessionScope.e.empGrade <= 3 }">
 	           	   <td>
 	           	   		<button type="button" class="mdBtn modifyBtn" value="<%=inPro.getInProNo() %>">수정</button>
 	           	   		<button type="button" class="mdBtn completeBtn hideBtn" value="<%=inPro.getInProNo() %>">완료</button>
@@ -62,6 +75,7 @@
 	           	   		<button type="button" class="mdBtn deleteBtn" value="<%=inPro.getInProNo() %>" >삭제</button>
 	           	   		<button type="button" class="mdBtn cancelBtn hideBtn" value="<%=inPro.getInProNo() %>" >취소</button>
 	           	   	</td>
+          	   		</c:if>
 	           </tr>
 	           <%} %>
 	       </tbody>

@@ -80,9 +80,13 @@
         	top:0;
         	right:0;
         	color: rgb(246,246,246);
+        	display:block;
+        	width:100px;
+        	height:100px;
         }
         .testWrap{
 	        position:relative;
+	        z-index:10000;
 	    }
 	    .test{
 	        width:100px;

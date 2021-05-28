@@ -34,9 +34,13 @@
 	            <%for(Employee emp : list){ %>
 	            <%
 	            	String store = emp.getEmpStore() == 1 ? "본사" : (emp.getEmpStore() == 2 ? "강남" : "부산");
-	            	String position = emp.getEmpGrade() == 1?"회장":(emp.getEmpStore()==2?"지점장":(emp.getEmpStore()==3?"주임":"사원"));
+	            	String position = emp.getEmpGrade() == 1?"회장":(emp.getEmpGrade()==2?"이사":(emp.getEmpGrade()==3?"지점장":(emp.getEmpGrade()==4?"주임":"사원")));
 	            %>
-	            <tr>
+	            <%if(emp.getSort()%2==0){ %>
+                <tr class="stripeTr1">
+            	<%}else{ %>
+                <tr class="stripeTr2">
+            	<%} %>
 	            	<td><%=emp.getSort() %></td><td><%=emp.getEmpId() %></td><td><%=emp.getEmpName()%></td><td><%=store %></td><td><%=position %></td><td><%=emp.getEmpPhone() %>	
 	            </tr>
 	            <%} %>

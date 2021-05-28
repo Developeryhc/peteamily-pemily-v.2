@@ -15,7 +15,7 @@ public class EmployeeDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Employee> list = new ArrayList<Employee>();
-		String query = "select * from(select rownum as sort, emp.* from(select * from emp order by emp_no desc) emp) where sort between ? and ?";
+		String query = "select * from(select rownum as sort, emp.* from(select * from emp order by emp_grade) emp) where sort between ? and ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, start);

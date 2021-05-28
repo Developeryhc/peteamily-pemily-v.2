@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.empMenu:nth-child(4)>a{
+	.empMenu:nth-child(5)>a{
 		color:#555;
     	background-color:rgb(246,246,246);
 	}
@@ -27,15 +27,19 @@
 	    <table id="outPro" class="printList">
 	        <thead>
 	            <tr>
-	                <th>No</th><th>상품번호</th><th>구매자</th><th>판매수량</th><th>판매가</th><th>거래일</th>
+	                <th>No</th><th>상품번호</th><th>구매자</th><th>판매가</th><th>판매수량</th><th>거래일</th>
 	            </tr>
 	        </thead>
 	        <tbody>
 	            <%
 	            	for(OutPro outPro : list){
 	            %>
-	            <tr>
-	            	<td><%=outPro.getSort() %></td><td><%=outPro.getOutProPn() %></td><td><%=outPro.getOutProMi() %></td><td><%=outPro.getOutProAmount() %><span class="won">개</span></td><td><%=outPro.getOutProPrice() %><span class="won">원</span></td><td><%=outPro.getOutProDate() %></td>
+	            <%if(outPro.getSort()%2==0){ %>
+                <tr class="stripeTr1">
+            	<%}else{ %>
+                <tr class="stripeTr2">
+            	<%} %>
+	            	<td><%=outPro.getSort() %></td><td><%=outPro.getOutProPn() %></td><td><%=outPro.getOutProMi() %></td><td><span class="priceFormat"><%=outPro.getOutProPrice() %></span><span class="won">원</span></td><td><%=outPro.getOutProAmount() %><span class="won">개</span></td><td><%=outPro.getOutProDate() %></td>
 	            </tr>
 	            <%} %>
 	        </tbody>
