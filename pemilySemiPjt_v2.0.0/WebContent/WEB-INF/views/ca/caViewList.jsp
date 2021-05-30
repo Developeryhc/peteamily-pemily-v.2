@@ -71,7 +71,7 @@
 	$(function(){
 		list(incaAn, 1);
 		$(".more-btn").click(function(){
-			list(incaNo, $(".more-btn").val());
+			list(incaAn, $(".more-btn").val());
 		});
 		
 		$(document).on("mouseover", ".main-wrap", function(){
@@ -95,6 +95,7 @@
 			success : function(data) {
 				console.log(data.length);
 				for (var i = 0; i < data.length; i++) {
+					console.log(data[i].inca.incaNo);
 					var ca = data[i].ca;
 					var inca = data[i].inca;
 					var html = "";
@@ -117,14 +118,16 @@
 					}
 					$(".main").append(html);
 						// 이미지 추가가 끝나고 나면 더보기 버튼의 value 값 조정
-					$(".more-btn").val(Number(start)+4);
-					var curr = Number($(".more-btn").attr("currentCount"));
-					$(".more-btn").attr("currentCount", curr+data.length);
-					var totalCount = $(".more-btn").attr("totalCount");
-					var currCount = $(".more-btn").attr("currentCount");
-					if(currCount == totalCount){
-						$(".more-btn").attr("disabled", true);		// 비활성화
-					}
+				}
+				$(".more-btn").val(Number(start)+4);
+				var curr = Number($(".more-btn").attr("currentCount"));
+				console.log(curr);
+				$(".more-btn").attr("currentCount", curr+data.length);
+				var totalCount = $(".more-btn").attr("totalCount");
+				var currCount = $(".more-btn").attr("currentCount");
+				if(currCount == totalCount){
+					$(".more-btn").css("background-color", "none");
+					$(".more-btn").attr("disabled", true);		// 비활성화
 				}
 			}
 		});
