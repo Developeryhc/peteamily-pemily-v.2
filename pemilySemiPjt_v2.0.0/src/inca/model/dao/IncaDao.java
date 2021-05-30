@@ -82,7 +82,7 @@ public class IncaDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Inca> list = new ArrayList<Inca>();
-		String query = "select * from (select rownum as sort, inca.* from(select * from inca WHERE NOT inca_condition = 4 order by inca_no desc) inca) where sort between ? and ?";
+		String query = "select * from (select rownum as sort, inca.* from(select * from inca WHERE NOT inca_condition = 4 and NOT inca_condition = 5 order by inca_no desc) inca) where sort between ? and ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, start);

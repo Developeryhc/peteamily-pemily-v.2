@@ -54,15 +54,15 @@ public class IncaService {
 		int aReqPage = ((reqPage-1)/printNavi)*printNavi+1;
 		//3.'<'이전버튼 생성 >  1~10 > 1 : aReqPage가 1인 경우 > 1~10인 경우 > 이전 페이지 생성 안함
 		if(aReqPage != 1) {
-			navigation += "<a href='/caList?reqPage="+(aReqPage-1)+"'><img src='images/moveButton/leftBtn1.png'></a>";
+			navigation += "<a href='/incaList?reqPage="+(aReqPage-1)+"'><img src='images/moveButton/leftBtn1.png'></a>";
 		}
 		//1~10 네비페이지 생성 for문
 		for(int i=0;i<printNavi;i++) {
 			//사용자가 클릭 해 보고있는 네비페이지 효과 적용
 			if(aReqPage == reqPage) {
-				navigation += "<a class='activeNavi' href='/caList?reqPage="+aReqPage+"'>"+aReqPage+"</a>";
+				navigation += "<a class='activeNavi' href='/incaList?reqPage="+aReqPage+"'>"+aReqPage+"</a>";
 			}else {
-				navigation += "<a href='/caList?reqPage="+aReqPage+"'>"+aReqPage+"</a>";				
+				navigation += "<a href='/incaList?reqPage="+aReqPage+"'>"+aReqPage+"</a>";				
 			}
 			//여기서 aReqPage++ 주며 totalList보다 높은 경우  > list가 없는경우임 > for문을 빠져나간다.
 			aReqPage++;
@@ -72,7 +72,7 @@ public class IncaService {
 		}
 		//for문을 빠져나온 직후 값은 11,22,33,44,... 이다 > ex) 11,22,33이면 다음 네비페이지가 존재하는 경우 고로 다음버튼 필수
 		if(aReqPage <= totalList) {
-			navigation += "<a href='/caList?reqPage="+aReqPage+"'><img src='images/moveButton/rightBtn1.png'></a>";
+			navigation += "<a href='/incaList?reqPage="+aReqPage+"'><img src='images/moveButton/rightBtn1.png'></a>";
 		}
 		//마지막으로 div로 시작했기 때문에 닫아주자
 		navigation += "</div>";

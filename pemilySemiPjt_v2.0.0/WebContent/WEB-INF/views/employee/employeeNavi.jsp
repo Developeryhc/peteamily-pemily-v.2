@@ -10,8 +10,8 @@
     <ul class="emp-nav">
 	    <li class="empMenu"><a href="/noticeEmpList?reqPage=1&noticeCom=1">공지사항</a></li>
 	    <li class="empMenu"><a href="/productList?reqPage=1">물품 재고</a></li>
-	    <li class="empMenu"><a href="/caList?reqPage=1">동물 분양(전)</a></li>
-	    <li class="empMenu"><a href="javascript:void(0)">동물 분양(중)</a></li>
+	    <li class="empMenu"><a href="/incaList?reqPage=1">동물 분양(전)</a></li>
+	    <li class="empMenu"><a href="/caList?reqPage=1">동물 분양(중)</a></li>
 	    <!-- 밑의 메뉴는 관리자 계정만 가능 -->
 	    <c:if test="${not empty sessionScope.e && sessionScope.e.empGrade <= 3 }">
 	    <li class="empMenu">

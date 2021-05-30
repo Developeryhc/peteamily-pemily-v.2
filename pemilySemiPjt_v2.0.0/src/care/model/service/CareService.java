@@ -1,9 +1,11 @@
 package care.model.service;
 
 import java.sql.Connection;
-
 import java.util.ArrayList;
 
+import ca.model.dao.CaDao;
+import ca.model.vo.Ca;
+import ca.model.vo.CaPage;
 import care.model.dao.CareDao;
 import care.model.vo.Care;
 import care.model.vo.CarePageData;
@@ -129,5 +131,4 @@ public class CareService {
 		JDBCTemplate.close(conn);
 		return result;
 	}
-
 }

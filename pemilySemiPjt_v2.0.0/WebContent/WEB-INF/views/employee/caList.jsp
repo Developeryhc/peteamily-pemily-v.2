@@ -1,10 +1,11 @@
+<%@page import="ca.model.vo.Ca"%>
 <%@page import="inca.model.vo.Inca"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%
-    ArrayList<Inca> list = (ArrayList<Inca>)request.getAttribute("list");
+    ArrayList<Ca> list = (ArrayList<Ca>)request.getAttribute("list");
     String navigation = (String)request.getAttribute("navigation");
     %>
 <!DOCTYPE html>
@@ -24,37 +25,31 @@
 	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
 	<section>
-		<h2 class="section-headline">반려동물 목록</h2>
+		<h2 class="section-headline">반려동물 등록목록</h2>
 		<!-- 반려동물 list table -->
         <table id="com_animals" class="printList">
             <thead>
                 <tr>
-                    <th>No</th><th>종</th><th>이름</th><th>개월</th><th>예상 분양가</th><th>지점</th><th>상태</th>
+                    <th>No</th><th>종</th><th>이름</th><th>예상 분양가</th><th>분양 지점</th><th>담당직원</th><th>등록일</th>
                     <c:if test="${not empty sessionScope.e && sessionScope.e.empGrade <= 3 }">
                     <th>분양</th><th colspan="2"></th>
                    	</c:if>
                 </tr>
             </thead>
             <tbody>
-                <%for(Inca inca : list) {
-            		String condition = inca.getIncaCondition() == 0 ? "1차 접종" : (inca.getIncaCondition() == 1 ? "2차 접종" : (inca.getIncaCondition() == 2 ? "치료 중" : (inca.getIncaCondition() == 3 ? "등록 가능" : "분양 중")));
-            		String ani = inca.getIncaAn()==2?"강아지":(inca.getIncaAn()==3?"고양이":(inca.getIncaAn()==4?"어류":(inca.getIncaAn()==5?"도마뱀":(inca.getIncaAn()==6?"설치류":(inca.getIncaAn()==7?"뱀":(inca.getIncaAn()==8?"절지류":"기타"))))));            		
-            		String adopt = inca.getIncaCondition()<3?"불가":"가능";
-            		String store = inca.getIncaStore()==1?"본사":(inca.getIncaStore()==2?"강남":"부산");
+                <%for(Ca ca : list) {
+            		String condition = "분양 중";
+            		String ani = ca.getCaKindNo()==2?"강아지":(ca.getCaKindNo()==3?"고양이":(ca.getCaKindNo()==4?"어류":(ca.getCaKindNo()==5?"도마뱀":(ca.getCaKindNo()==6?"설치류":(ca.getCaKindNo()==7?"뱀":(ca.getCaKindNo()==8?"절지류":"기타"))))));
+            		String store = ca.getCaStore()==1?"본사":(ca.getCaStore()==2?"강남":"부산");
             	%>
-            	<%if(inca.getSort()%2==0){ %>
+            	<%if(ca.getRnum()%2==0){ %>
                 <tr class="stripeTr1">
             	<%}else{ %>
                 <tr class="stripeTr2">
             	<%} %>
-                	<td><%=inca.getSort() %></td><td><%=ani %></td><td><%=inca.getIncaName() %></td><td><%=inca.getIncaMonth() %></td><td><span class="priceFormat"><%=inca.getIncaPrice() %></span><span class="won">원</span></td><td><%=store %></td><td><%=condition %></td>
+                	<td><%=ca.getRnum() %></td><td><%=ani %></td><td><%=ca.getCaName() %></td><td><span class="priceFormat"><%=ca.getCaPrice() %></span><span class="won">원</span></td><td><%=store%></td><td><%=ca.getCaEmp()%></td><td><%=ca.getCaDate()%></td>
                 	<c:if test="${not empty sessionScope.e && sessionScope.e.empGrade <= 3 }">
-	                	<%if(inca.getIncaCondition() < 3){ %>
-	                		<td><button class="mdBtn impoBtn">등록불가</button></td>
-	                	<%}else{ %>
-	                		<td><button class="mdBtn poBtn" value="<%=inca.getIncaNo() %>">등록하기</button></td>
-	                	<%} %>
-                		<td><button type="button" class="mdBtn modifyBtn" value="<%=inca.getIncaNo()%>">수정</button></td><td><button type="button" class="mdBtn deleteBtn" value="<%=inca.getIncaNo()%>">삭제</button></td>
+	                	<td><button type="button" class="mdBtn modifyBtn" value="<%=ca.getCaAn()%>">수정</button></td><td><button type="button" class="mdBtn deleteBtn" value="<%=ca.getCaAn()%>">삭제</button></td>
                 	</c:if>
                 </tr>
                 <%} %>

@@ -110,6 +110,56 @@ public class CaDao {
 		return result;
 	}
 
-	
+	public ArrayList<Ca> selectAllCa(Connection conn, int start, int end) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "SELECT rownum AS rnum , I.inca_no, I.inca_an, I.inca_name, I.inca_price, I.inca_store, C.ca_writer, C.ca_date FROM inca I, (SELECT ca_an, ca_writer, ca_date FROM ca) C WHERE I.inca_condition = 4 AND I.inca_no = C.ca_an AND rownum BETWEEN ? AND ? ORDER BY I.inca_no DESC";
+		ArrayList<Ca> list = new ArrayList<Ca>();
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				Ca c = new Ca();
+				c.setCaAn(rset.getInt("inca_no"));
+				c.setCaKindNo(rset.getInt("inca_an"));
+				c.setCaName(rset.getString("inca_name"));
+				c.setCaDate(rset.getString("ca_date"));
+				c.setCaEmp(rset.getString("ca_writer"));
+				c.setCaPrice(rset.getInt("inca_price"));
+				c.setCaStore(rset.getInt("inca_store"));
+				c.setRnum(rset.getInt("rnum"));
+				list.add(c);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return list;
+	}
 
+	public int selectTotalListCount(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "SELECT COUNT(*) AS COUNT FROM ca";
+		int totalCount = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				totalCount = rset.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return totalCount;
+	}
 }
