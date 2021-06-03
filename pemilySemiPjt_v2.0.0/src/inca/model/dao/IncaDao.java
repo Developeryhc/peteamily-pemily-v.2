@@ -243,7 +243,7 @@ public class IncaDao {
 	public int updateInca(Connection conn, int caAn) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "UPDATE inca SET inca_condition = 3 WHERE inca_no = ?";
+		String query = "UPDATE inca SET inca_condition = 4 WHERE inca_no = ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, caAn);
