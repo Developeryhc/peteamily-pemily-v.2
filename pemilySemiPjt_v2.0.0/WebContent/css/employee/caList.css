@@ -12,24 +12,20 @@
 #com_animals>tbody td:nth-child(3){
     width:15%;
 }
-/* 개월 */
-#com_animals>tbody td:nth-child(4){
-    width:5%;
-}
 /* 분양가 */
-#com_animals>tbody td:nth-child(5){
-    width:20%;
+#com_animals>tbody td:nth-child(4){
+    width:15%;
 }
 /* 상태 */
-#com_animals>tbody td:nth-child(6){
+#com_animals>tbody td:nth-child(5){
     width:10%;
 }
 /* 지점 */
-#com_animals>tbody td:nth-child(7){
+#com_animals>tbody td:nth-child(6){
 	width:10%;
 }
 /* 등록상태 */
-#com_animals>tbody td:nth-child(8){
+#com_animals>tbody td:nth-child(7){
 	width:auto;    
 }
 

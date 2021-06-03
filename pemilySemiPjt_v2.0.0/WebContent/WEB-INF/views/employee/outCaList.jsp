@@ -23,7 +23,7 @@
 	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
 	<section>
-		<h2 class="section-headline">분양</h2>
+		<h2 class="section-headline">분양 내역</h2>
 	    <table id="outCaList" class="printList">
 	        <thead>
 	            <tr>

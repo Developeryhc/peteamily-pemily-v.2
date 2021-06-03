@@ -42,7 +42,7 @@ public class IncaWriteServlet extends HttpServlet {
 		// 파일 업로드를 하는 경우 enctype="multipart/form-data"로 처리해야하므로 enctype이 정상인지 확인
 		if(!ServletFileUpload.isMultipartContent(request)) {
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
-			request.setAttribute("msg", "Notice Error[enctype]");
+			request.setAttribute("msg", "INCA Error[enctype]");
 			request.setAttribute("loc", "/");
 			rd.forward(request, response);
 			return;
@@ -74,9 +74,9 @@ public class IncaWriteServlet extends HttpServlet {
 		// 4. 결과 처리
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		if(result>0) {
-			request.setAttribute("msg", "Inca Register Complete");
+			request.setAttribute("msg", "등록되었습니다.");
 		}else {
-			request.setAttribute("msg", "Inca Register Falied");
+			request.setAttribute("msg", "다시 시도해주세요");
 		}
 		request.setAttribute("loc", "/caList?reqPage=1");
 		rd.forward(request, response);

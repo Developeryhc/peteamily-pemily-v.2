@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.empMenu:last-child>a{
+	.empMenu:nth-last-child(2)>a{
 		color:#555;
     	background-color:#fff;
 	}
@@ -17,6 +17,9 @@
 	margin: auto;
 	padding: 60px 90px 60px 90px;
 	display: none;
+	}
+	.note-editable{
+		background-color:#fff;
 	}
 </style>
 </head>
