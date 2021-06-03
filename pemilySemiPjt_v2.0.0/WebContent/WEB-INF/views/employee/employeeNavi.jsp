@@ -29,7 +29,7 @@
 	    	</ul>
 	    </li>
 	    <li class="empMenu"><a href="/insertPage">등록하기</a></li>
-	    <li class="empMenu"><a href="/staffAddFrm">노예 등록</a></li>
+	    <li class="empMenu"><a href="/staffAddFrm">직원 등록</a></li>
 	    </c:if>
     </ul>
 </nav>
